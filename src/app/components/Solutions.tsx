@@ -4,23 +4,25 @@ export function Solutions() {
   const solutions = [
     {
       icon: MessageCircle,
-      title: "Коммуникативная методика",
-      description: "80% урока — разговорная практика. Ребёнок начинает говорить с первого занятия. Не зубрит правила — применяет их в живом общении."
+      title: "Индивидуальный подход",
+      subtitle: "Цена = Качество",
+      description: "Индивидуальные занятия один на один. Преподаватель полностью сосредоточен на вашем ребёнке. Никаких групп — только персональное внимание."
     },
     {
       icon: Shield,
-      title: "Безопасная среда",
-      description: "Индивидуальные занятия один на один. Никто не смеётся над ошибками. Преподаватель подстраивается под темп ребёнка."
+      title: "Интерактивные уроки",
+      description: "Игры, квизы, видео, песни — ребёнок не замечает, как пролетает 45 минут. Учёба становится любимым занятием."
     },
     {
       icon: Laptop,
-      title: "Занятия онлайн",
-      description: "Учитесь из дома в удобное время. Нужен только компьютер или планшет. Экономите 5-10 часов в неделю на дорогу."
+      title: "Каждый час отрабатываем на максимум",
+      subtitle: "Каждый час урока — это инвестиция в будущее вашего ребёнка",
+      description: "Наши дети реально показывают результаты. 90% смогли добиться результата, 10% — из-за обстоятельств, на которые мы не можем повлиять."
     },
     {
       icon: Sparkles,
-      title: "Интерактивные уроки",
-      description: "Игры, квизы, видео, песни — ребёнок не замечает, как пролетает 45 минут. Учёба становится любимым занятием."
+      title: "Хорошая методология",
+      description: "У нас есть своя школа преподавателей, где мы сами задаём планку. Преподаватели постоянно обучаются и совершенствуют методику."
     }
   ];
 
@@ -36,10 +38,10 @@ export function Solutions() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="mb-4 text-[32px] md:text-[40px]" style={{ fontFamily: 'Montserrat, sans-serif', color: '#1E293B' }}>
-            Мы решаем эти проблемы системно
+            Почему мы?
           </h2>
           <p className="text-lg md:text-xl text-[#64748B] max-w-3xl mx-auto">
-            Проверенные методы, которые работают для тысяч детей по всему миру
+            Проверенные методы, которые работают для сотни детей по всему Казахстану
           </p>
         </div>
 
@@ -61,6 +63,11 @@ export function Solutions() {
                   <h3 className="mb-4 text-xl md:text-2xl" style={{ fontFamily: 'Montserrat, sans-serif', color: '#1E293B' }}>
                     {solution.title}
                   </h3>
+                  {solution.subtitle && (
+                    <p className="mb-3 text-base md:text-lg font-semibold text-[#2563EB]">
+                      {solution.subtitle}
+                    </p>
+                  )}
                   <p className="text-[#475569] leading-relaxed text-base md:text-lg">
                     {solution.description}
                   </p>

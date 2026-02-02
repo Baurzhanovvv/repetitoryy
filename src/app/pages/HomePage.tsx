@@ -16,7 +16,6 @@ export function HomePage() {
           {/* Title Section */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="text-4xl">🇺🇸</div>
               <GraduationCap className="w-12 h-12 text-[#2563EB]" />
               <div className="text-4xl">🎓</div>
             </div>
