@@ -18,7 +18,7 @@ export function HowItWorks() {
       icon: Calendar,
       number: "03",
       title: "Регулярные занятия",
-      description: "Онлайн занятия в Google Meet. (Убрать про домашние задания в игровом формате)"
+      description: "Онлайн занятия в Google Meet."
     },
     {
       icon: TrendingUp,
