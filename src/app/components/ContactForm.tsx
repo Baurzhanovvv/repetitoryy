@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-import { CheckCircle, Gift, RefreshCw, Shield, TrendingUp } from "lucide-react";
+import { CheckCircle, Gift, TrendingUp } from "lucide-react";
 import { sendToTelegram } from "../utils/telegram";
 
 export function ContactForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     childName: "",
     age: "",
@@ -22,13 +24,8 @@ export function ContactForm() {
     });
     
     if (success) {
-      alert("Спасибо! Мы свяжемся с вами в ближайшее время.");
-      // Очистка формы
-      setFormData({
-        childName: "",
-        age: "",
-        phone: ""
-      });
+      // Редирект на страницу благодарности
+      navigate('/thank-you');
     } else {
       alert("Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по WhatsApp.");
     }

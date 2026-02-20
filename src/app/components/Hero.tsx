@@ -1,10 +1,10 @@
 import { Button } from "./ui/button";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { CheckCircle } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getContent, Language } from "../config/content";
 import { sendToTelegram } from "../utils/telegram";
 
@@ -13,6 +13,7 @@ interface HeroProps {
 }
 
 export function Hero({ language }: HeroProps) {
+  const navigate = useNavigate();
   const content = getContent(language);
   const [formData, setFormData] = useState({
     childName: "",
@@ -33,14 +34,8 @@ export function Hero({ language }: HeroProps) {
     });
     
     if (success) {
-      alert("Спасибо! Мы свяжемся с вами в ближайшее время.");
-      // Очистка формы
-      setFormData({
-        childName: "",
-        age: "",
-        phone: "",
-        time: ""
-      });
+      // Редирект на страницу благодарности
+      navigate('/thank-you');
     } else {
       alert("Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по WhatsApp.");
     }
