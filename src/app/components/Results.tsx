@@ -52,17 +52,17 @@ export function Results() {
   };
 
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white to-[#F8FAFC] relative overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white to-[#EFF1F7] relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-20 left-0 w-80 h-80 bg-[#10B981]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2563EB]/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-0 w-80 h-80 bg-[#1E45B8]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#1E45B8]/5 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="mb-4 text-[32px] md:text-[40px]" style={{ fontFamily: 'Montserrat, sans-serif', color: '#1E293B' }}>
+          <h2 className="mb-4 text-[32px] md:text-[40px]" style={{ fontFamily: 'Onest, sans-serif', color: '#101A2E' }}>
             Реальные истории наших учеников
           </h2>
-          <p className="text-lg md:text-xl text-[#64748B] max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[#5A6480] max-w-3xl mx-auto">
             Вот как меняется жизнь детей после занятий с нами
           </p>
         </div>
@@ -72,7 +72,7 @@ export function Results() {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-all duration-300"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#1E45B8] hover:bg-[#1E45B8] hover:text-white transition-all duration-300"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -80,7 +80,7 @@ export function Results() {
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-all duration-300"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#1E45B8] hover:bg-[#1E45B8] hover:text-white transition-all duration-300"
             aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6" />
@@ -111,14 +111,14 @@ export function Results() {
                     {/* Content */}
                     <div className="p-8 md:p-12">
                       {/* Title */}
-                      <h3 className="text-2xl md:text-3xl mb-6 text-[#1E293B]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      <h3 className="text-2xl md:text-3xl mb-6 text-[#101A2E]" style={{ fontFamily: 'Onest, sans-serif' }}>
                         {result.title}
                       </h3>
                       
                       {/* Story */}
                       <div className="prose prose-lg max-w-none mb-6">
                         {result.story.split('\n\n').map((paragraph, i) => (
-                          <p key={i} className="text-[#475569] leading-relaxed mb-4">
+                          <p key={i} className="text-[#3E4A66] leading-relaxed mb-4">
                             {paragraph}
                           </p>
                         ))}
@@ -126,23 +126,23 @@ export function Results() {
 
                       {/* Testimonial */}
                       {result.testimonial && (
-                        <div className="bg-gradient-to-br from-[#EFF6FF] to-[#F0F9FF] p-6 md:p-8 rounded-2xl border-l-4 border-[#2563EB] mb-6">
-                          <p className="text-[#1E293B] italic leading-relaxed">
+                        <div className="bg-gradient-to-br from-[#E8EDFB] to-[#E8EDFB] p-6 md:p-8 rounded-2xl border-l-4 border-[#1E45B8] mb-6">
+                          <p className="text-[#101A2E] italic leading-relaxed">
                             {result.testimonial}
                           </p>
-                          <p className="text-sm text-[#64748B] mt-4">— Отзыв от родителя</p>
+                          <p className="text-sm text-[#5A6480] mt-4">— Отзыв от родителя</p>
                         </div>
                       )}
 
                       {/* Conclusion */}
-                      <div className="bg-[#10B981]/5 p-6 rounded-2xl border border-[#10B981]/20 mb-6">
-                        <p className="text-[#1E293B] font-medium leading-relaxed">
+                      <div className="bg-[#1E45B8]/5 p-6 rounded-2xl border border-[#1E45B8]/20 mb-6">
+                        <p className="text-[#101A2E] font-medium leading-relaxed">
                           {result.conclusion}
                         </p>
                       </div>
 
                       {/* Duration */}
-                      <div className="flex items-center gap-2 text-[#F97316]">
+                      <div className="flex items-center gap-2 text-[#D9541C]">
                         <Clock className="w-5 h-5" />
                         <p className="font-semibold">
                           {result.duration}
@@ -163,7 +163,7 @@ export function Results() {
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide 
-                    ? 'bg-[#2563EB] w-8' 
+                    ? 'bg-[#1E45B8] w-8' 
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -178,7 +178,7 @@ export function Results() {
             onClick={scrollToForm}
             className="text-base md:text-lg px-8 py-6 rounded-2xl shadow-lg"
             style={{ 
-              backgroundColor: '#F97316',
+              backgroundColor: '#D9541C',
               color: 'white'
             }}
           >

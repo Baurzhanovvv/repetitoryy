@@ -1,6 +1,5 @@
 import { Hero } from "../components/Hero";
 import { PainPoints } from "../components/PainPoints";
-import { CTABanner } from "../components/CTABanner";
 import { Solutions } from "../components/Solutions";
 import { HowItWorks } from "../components/HowItWorks";
 import { Results } from "../components/Results";
@@ -27,7 +26,7 @@ const ContactFormWithLang = withLanguageSupport(ContactForm);
 
 export function EnglishPage() {
   return (
-    <div className="min-h-screen" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div className="min-h-screen" style={{ fontFamily: "'Golos Text', sans-serif" }}>
       {/* Navigation */}
       <Navigation language="english" />
 
@@ -37,26 +36,23 @@ export function EnglishPage() {
       {/* 2. Pain Points (Проблемы) */}
       <PainPoints language="english" />
 
-      {/* CTA Banner */}
-      <CTABanner />
-
-      {/* 3. Solutions (Решения) */}
-      <div id="solutions">
-        <SolutionsWithLang language="english" />
-      </div>
-
-      {/* 4. How It Works (Как проходят занятия) */}
-      <HowItWorksWithLang language="english" />
-
-      {/* 5. Results (Результаты учеников) */}
+      {/* 3. Результаты учеников — главное доказательство, поэтому высоко */}
       <div id="results">
         <ResultsWithLang language="english" />
       </div>
 
-      {/* 6. Teachers (Преподаватели) */}
+      {/* 4. Почему мы */}
+      <div id="solutions">
+        <SolutionsWithLang language="english" />
+      </div>
+
+      {/* 5. Преподаватели */}
       <div id="teachers">
         <TeachersWithLang language="english" />
       </div>
+
+      {/* 6. Как проходят занятия — тёмная секция-пауза */}
+      <HowItWorksWithLang language="english" />
 
       {/* 7. Testimonials (Отзывы родителей) */}
       <div id="testimonials">

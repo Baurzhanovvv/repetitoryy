@@ -42,7 +42,7 @@ export function ThankYouPage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Golos Text', sans-serif" }}>
       <Navigation language="english" />
       
       <main className="flex-grow flex items-center justify-center py-16 px-4">
@@ -56,27 +56,27 @@ export function ThankYouPage() {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E293B] mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#101A2E] mb-4" style={{ fontFamily: 'Onest, sans-serif' }}>
               Спасибо за заявку!
             </h1>
 
             {/* Message */}
-            <p className="text-lg md:text-xl text-[#475569] mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-[#3E4A66] mb-8 leading-relaxed">
               Мы получили вашу заявку и свяжемся с вами в ближайшее время.
             </p>
 
             {/* Contact Info */}
-            <div className="bg-[#EFF6FF] rounded-2xl p-6 mb-8">
-              <p className="text-[#1E293B] font-medium mb-2">
+            <div className="bg-[#E8EDFB] rounded-2xl p-6 mb-8">
+              <p className="text-[#101A2E] font-medium mb-2">
                 Есть вопросы?
               </p>
-              <p className="text-[#475569] text-sm md:text-base">
+              <p className="text-[#3E4A66] text-sm md:text-base">
                 Напишите нам в WhatsApp:{" "}
                 <a 
                   href="https://wa.me/77475252582" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-[#2563EB] font-semibold hover:underline"
+                  className="text-[#1E45B8] font-semibold hover:underline"
                 >
                   +7 (747) 525-25-82
                 </a>
@@ -89,7 +89,7 @@ export function ThankYouPage() {
               size="lg"
               className="w-full md:w-auto px-8 py-6 text-base md:text-lg rounded-xl shadow-lg"
               style={{ 
-                backgroundColor: '#F97316',
+                backgroundColor: '#D9541C',
                 color: 'white'
               }}
             >

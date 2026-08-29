@@ -34,17 +34,17 @@ export function FAQ() {
   ];
 
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white to-[#F8FAFC] relative overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white to-[#EFF1F7] relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-[#10B981]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#2563EB]/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-10 w-64 h-64 bg-[#1E45B8]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#1E45B8]/5 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="mb-4 text-[32px] md:text-[40px]" style={{ fontFamily: 'Montserrat, sans-serif', color: '#1E293B' }}>
+          <h2 className="mb-4 text-[32px] md:text-[40px]" style={{ fontFamily: 'Onest, sans-serif', color: '#101A2E' }}>
             Ответы на популярные вопросы
           </h2>
-          <p className="text-lg md:text-xl text-[#64748B] max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-[#5A6480] max-w-3xl mx-auto">
             Всё, что вы хотели знать об обучении в нашей школе
           </p>
         </div>
@@ -55,14 +55,14 @@ export function FAQ() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-white rounded-2xl border-2 border-gray-100 px-6 md:px-8 py-2 data-[state=open]:border-[#F97316] data-[state=open]:shadow-lg transition-all"
+                className="bg-white rounded-2xl border-2 border-gray-100 px-6 md:px-8 py-2 data-[state=open]:border-[#D9541C] data-[state=open]:shadow-lg transition-all"
               >
                 <AccordionTrigger className="text-left hover:no-underline py-5">
-                  <span className="text-[#1E293B] pr-4 text-lg md:text-xl" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                  <span className="text-[#101A2E] pr-4 text-lg md:text-xl" style={{ fontFamily: 'Onest, sans-serif' }}>
                     {faq.question}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="text-[#475569] leading-relaxed pb-6 text-base md:text-lg">
+                <AccordionContent className="text-[#3E4A66] leading-relaxed pb-6 text-base md:text-lg">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

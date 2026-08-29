@@ -1,51 +1,42 @@
-import { XCircle, MessageSquareX, Clock, Frown, Users } from "lucide-react";
 import { Language } from "../config/content";
 
 interface PainPointsProps {
   language?: Language;
 }
 
-const painPointsByLanguage: Record<Language, { icon: typeof XCircle; title: string; description: string }[]> = {
+const painPointsByLanguage: Record<Language, { title: string; description: string }[]> = {
   english: [
     {
-      icon: XCircle,
       title: "Учим английский 3 года — результата ноль",
       description: "Ребёнок ходит на курсы или к репетитору, но до сих пор не может составить простое предложение. Деньги уходят, а прогресса не видно."
     },
     {
-      icon: MessageSquareX,
       title: "Боится говорить — молчит на уроках",
       description: "Знает слова, понимает грамматику, но как дело доходит до разговора — замыкается. Страх ошибки парализует."
     },
     {
-      icon: Clock,
       title: "Нет времени возить на занятия",
       description: "Хороший репетитор — на другом конце города. Дорога туда-обратно съедает 2 часа. А ещё пробки, усталость, домашка..."
     },
     {
-      icon: Frown,
       title: "Скучные уроки — ребёнок не хочет заниматься",
       description: "Зубрёжка, учебники из 90-х, никакого интереса. Каждое занятие — борьба и уговоры."
     }
   ],
   kazakh: [
     {
-      icon: XCircle,
       title: "Учит казахский с первого класса — а говорить не может",
       description: "В школе язык проходят по учебнику: правила, тексты, пересказ. Ребёнок знает слова, но живой разговор не поддерживает."
     },
     {
-      icon: MessageSquareX,
       title: "Понимает, но отвечает по-русски",
       description: "К нему обращаются на казахском — он всё понял, а ответить не может. С каждым разом привычка переключаться на русский закрепляется сильнее."
     },
     {
-      icon: Users,
       title: "Дома не с кем практиковать",
       description: "В семье говорят по-русски, языковой среды нет. Выученное на уроке негде применить — через неделю оно забывается."
     },
     {
-      icon: Frown,
       title: "Скучные уроки — ребёнок не хочет заниматься",
       description: "Зубрёжка правил и пересказы наизусть, никакого интереса. Каждое занятие — борьба и уговоры."
     }
@@ -56,42 +47,45 @@ export function PainPoints({ language = "english" }: PainPointsProps) {
   const painPoints = painPointsByLanguage[language];
 
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white via-[#FFF7ED]/30 to-white relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-10 right-0 w-72 h-72 bg-[#F97316]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-0 w-64 h-64 bg-[#2563EB]/5 rounded-full blur-3xl"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="mb-4 text-[32px] md:text-[40px]" style={{ fontFamily: 'Montserrat, sans-serif', color: '#1E293B' }}>
-            Узнаёте себя?
+    <section className="py-14 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[34em] mb-10 md:mb-12">
+          <div className="text-[#1E45B8] text-xs font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: 'Onest, sans-serif' }}>
+            Знакомо?
+          </div>
+          <h2 className="text-[#101A2E] text-[27px] md:text-[36px] font-bold tracking-[-0.02em] mt-2.5 mb-3 text-balance" style={{ fontFamily: 'Onest, sans-serif' }}>
+            Родители приходят к нам примерно с этим
           </h2>
-          <p className="text-lg md:text-xl text-[#64748B] max-w-3xl mx-auto">
-            Эти проблемы встречаются у 8 из 10 родителей, которые приходят к нам
+          <p className="text-[#5A6480] text-[17px] md:text-lg">
+            Формулировки, которые мы слышим на первом звонке чаще всего.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-          {painPoints.map((point, index) => {
-            const Icon = point.icon;
-            return (
-              <div
-                key={index}
-                className="bg-white p-8 md:p-10 rounded-3xl border-2 border-gray-100 hover:border-[#F97316]/30 hover:shadow-2xl transition-all duration-300 group"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-red-50 to-red-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-8 h-8 text-red-500" />
-                </div>
-                <h3 className="mb-4 text-xl md:text-2xl" style={{ fontFamily: 'Montserrat, sans-serif', color: '#1E293B' }}>
-                  «{point.title}»
-                </h3>
-                <p className="text-[#475569] leading-relaxed text-base md:text-lg">
-                  {point.description}
-                </p>
-              </div>
-            );
-          })}
+        {/* Реплики: нечётные слева, чётные справа — как в переписке */}
+        <div className="grid gap-4 max-w-[860px]">
+          {painPoints.map((point, index) => (
+            <div
+              key={index}
+              className={
+                "bg-white border border-[#DCE1ED] px-6 py-5 md:max-w-[620px] transition-all duration-200 hover:border-[#C3CCE2] " +
+                (index % 2 === 0
+                  ? "rounded-[18px] rounded-bl-[5px] md:hover:translate-x-[3px]"
+                  : "rounded-[18px] rounded-br-[5px] md:ml-auto md:hover:-translate-x-[3px]")
+              }
+            >
+              <p className="text-[#101A2E] text-[18px] md:text-[18.5px] font-semibold tracking-[-0.01em]" style={{ fontFamily: 'Onest, sans-serif' }}>
+                «{point.title}»
+              </p>
+              <p className="text-[#5A6480] text-[15.5px] leading-relaxed mt-1.5">
+                {point.description}
+              </p>
+            </div>
+          ))}
         </div>
+
+        <p className="max-w-[860px] mt-6 px-5 py-4 bg-[#E8EDFB] rounded-2xl text-[#1E45B8] text-[17px] font-semibold" style={{ fontFamily: 'Onest, sans-serif' }}>
+          С каждой из них мы работаем не первый год — ниже показываем, как именно.
+        </p>
       </div>
     </section>
   );

@@ -16,13 +16,13 @@ export function Footer({ language }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#1E293B] text-white py-12 md:py-16 lg:py-20">
+    <footer className="bg-[#101A2E] text-white py-12 md:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-10 md:mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <Logo className="[&_path]:fill-white [&_circle]:fill-[#F97316] [&_span]:text-white [&_.text-muted-foreground]:text-white/60" />
+              <Logo className="[&_path]:fill-white [&_circle]:fill-[#D9541C] [&_span]:text-white [&_.text-muted-foreground]:text-white/60" />
             </div>
             <p className="text-white/70 leading-relaxed max-w-md mb-6">
               Персональные онлайн-занятия английским и казахским для детей 10-17 лет. 
@@ -33,7 +33,7 @@ export function Footer({ language }: FooterProps) {
                 href="https://wa.me/77475252582" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 hover:bg-[#10B981] rounded-full flex items-center justify-center transition-colors"
+                className="w-10 h-10 bg-white/10 hover:bg-[#1FA855] rounded-full flex items-center justify-center transition-colors"
               >
                 <MessageCircle className="w-5 h-5" />
               </a>
@@ -42,7 +42,7 @@ export function Footer({ language }: FooterProps) {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg mb-4 font-semibold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            <h4 className="text-lg mb-4 font-semibold" style={{ fontFamily: 'Onest, sans-serif' }}>
               Навигация
             </h4>
             <ul className="space-y-3">
@@ -80,7 +80,7 @@ export function Footer({ language }: FooterProps) {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg mb-4 font-semibold" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            <h4 className="text-lg mb-4 font-semibold" style={{ fontFamily: 'Onest, sans-serif' }}>
               Контакты
             </h4>
             <ul className="space-y-3">

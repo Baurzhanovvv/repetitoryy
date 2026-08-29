@@ -1,4 +1,3 @@
-import { Award, Users, GraduationCap } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import teacher1 from "../../assets/teacher1.jpeg";
 import teacher2 from "../../assets/teacher2.jpeg";
@@ -33,87 +32,42 @@ export function Teachers() {
   ];
 
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white to-[#EFF6FF] relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-10 right-0 w-72 h-72 bg-[#2563EB]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-0 w-80 h-80 bg-[#F97316]/5 rounded-full blur-3xl"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="mb-4 text-[32px] md:text-[40px]" style={{ fontFamily: 'Montserrat, sans-serif', color: '#1E293B' }}>
-            Наши преподаватели
+    <section className="py-14 md:py-20 bg-white border-t border-[#DCE1ED]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[34em] mb-10 md:mb-12">
+          <div className="text-[#1E45B8] text-xs font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: 'Onest, sans-serif' }}>
+            Кто занимается
+          </div>
+          <h2 className="text-[#101A2E] text-[27px] md:text-[36px] font-bold tracking-[-0.02em] mt-2.5 mb-3 text-balance" style={{ fontFamily: 'Onest, sans-serif' }}>
+            Три преподавателя, а не поток случайных людей
           </h2>
-          <p className="text-lg md:text-xl text-[#64748B] max-w-3xl mx-auto">
-            Каждый преподаватель прошёл строгий отбор и имеет международные сертификаты
+          <p className="text-[#5A6480] text-[17px] md:text-lg">
+            Школа небольшая — вы будете знать, кто именно ведёт вашего ребёнка.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-5">
           {teachers.map((teacher, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-[#2563EB]/30 group"
-            >
-              {/* Teacher Image */}
-              <div className="aspect-[3/4] overflow-hidden relative">
-                <ImageWithFallback
-                  src={teacher.image}
-                  alt={teacher.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
-                
-                {/* Name on image */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-2xl md:text-3xl mb-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                    {teacher.name}
-                  </h3>
+            <div key={index} className="bg-white border border-[#DCE1ED] rounded-[18px] overflow-hidden hover:border-[#C3CCE2] transition-colors duration-200">
+              <ImageWithFallback
+                src={teacher.image}
+                alt={teacher.name}
+                className="w-full aspect-[4/5] object-cover"
+              />
+              <div className="px-5 pt-5 pb-6">
+                <div className="text-[#101A2E] text-xl font-bold tracking-[-0.01em]" style={{ fontFamily: 'Onest, sans-serif' }}>
+                  {teacher.name}
                 </div>
-              </div>
-              
-              {/* Teacher Info */}
-              <div className="p-6 md:p-8 space-y-4">
-                {/* Experience */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#10B981]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Award className="w-5 h-5 text-[#10B981]" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#64748B] uppercase tracking-wide">Опыт</p>
-                    <p className="text-[#1E293B] font-semibold">{teacher.experience}</p>
-                  </div>
+                <div className="text-[#D9541C] text-sm font-semibold mt-0.5" style={{ fontFamily: 'Onest, sans-serif' }}>
+                  {teacher.experience}
                 </div>
-
-                {/* Students */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#2563EB]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Users className="w-5 h-5 text-[#2563EB]" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#64748B] uppercase tracking-wide">Результат</p>
-                    <p className="text-[#1E293B] font-semibold">{teacher.students}</p>
-                  </div>
-                </div>
-
-                {/* Certificates */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#F97316]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <GraduationCap className="w-5 h-5 text-[#F97316]" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-[#64748B] uppercase tracking-wide">Сертификаты</p>
-                    <p className="text-[#1E293B] font-semibold text-sm">{teacher.certificates}</p>
-                  </div>
-                </div>
-
-                {/* Specialization */}
-                <div className="pt-4 border-t border-gray-100">
-                  <p className="text-xs text-[#64748B] mb-2 uppercase tracking-wide">Специализация</p>
-                  <p className="text-[#1E293B] leading-relaxed">
-                    {teacher.specialization}
-                  </p>
-                </div>
+                <ul className="mt-3.5 pt-3.5 border-t border-[#DCE1ED] grid gap-2">
+                  <li className="flex gap-2 text-[#5A6480] text-[14.5px]"><span className="text-[#B8C1D6]">—</span>{teacher.students}</li>
+                  <li className="flex gap-2 text-[#5A6480] text-[14.5px]"><span className="text-[#B8C1D6]">—</span>{teacher.certificates}</li>
+                </ul>
+                <p className="text-[#5A6480] text-[14.5px] leading-relaxed mt-3">
+                  {teacher.specialization}
+                </p>
               </div>
             </div>
           ))}

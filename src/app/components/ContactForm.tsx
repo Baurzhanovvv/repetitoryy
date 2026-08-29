@@ -51,7 +51,7 @@ export function ContactForm() {
   ];
 
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-br from-[#2563EB] via-[#3B82F6] to-[#10B981] relative overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-br from-[#1E45B8] via-[#3A63D6] to-[#1E45B8] relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/10 rounded-full -ml-40 -mb-40 blur-3xl"></div>
@@ -59,7 +59,7 @@ export function ContactForm() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="mb-4 text-white text-[32px] md:text-[44px] lg:text-[52px]" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          <h2 className="mb-4 text-white text-[32px] md:text-[44px] lg:text-[52px]" style={{ fontFamily: 'Onest, sans-serif' }}>
             Запишитесь на бесплатный пробный урок
           </h2>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
@@ -77,7 +77,7 @@ export function ContactForm() {
                 className="flex flex-col items-center text-center bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
                 <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-4 shadow-lg">
-                  <Icon className="w-7 h-7 text-[#2563EB]" />
+                  <Icon className="w-7 h-7 text-[#1E45B8]" />
                 </div>
                 <p className="text-white font-medium text-sm md:text-base">
                   {guarantee.text}
@@ -92,7 +92,7 @@ export function ContactForm() {
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="childName" className="text-[#1E293B] mb-2 block text-base">
+                <Label htmlFor="childName" className="text-[#101A2E] mb-2 block text-base">
                   Имя ребёнка
                 </Label>
                 <Input
@@ -106,7 +106,7 @@ export function ContactForm() {
               </div>
 
               <div>
-                <Label htmlFor="age" className="text-[#1E293B] mb-2 block text-base">
+                <Label htmlFor="age" className="text-[#101A2E] mb-2 block text-base">
                   Возраст
                 </Label>
                 <Select value={formData.age} onValueChange={(value) => setFormData({...formData, age: value})}>
@@ -127,7 +127,7 @@ export function ContactForm() {
               </div>
 
               <div>
-                <Label htmlFor="phone" className="text-[#1E293B] mb-2 block text-base">
+                <Label htmlFor="phone" className="text-[#101A2E] mb-2 block text-base">
                   Телефон родителя
                 </Label>
                 <Input
@@ -146,14 +146,14 @@ export function ContactForm() {
                 size="lg"
                 className="w-full text-base md:text-lg py-7 rounded-xl shadow-lg mt-8"
                 style={{ 
-                  backgroundColor: '#F97316',
+                  backgroundColor: '#D9541C',
                   color: 'white'
                 }}
               >
                 Получить бесплатный урок
               </Button>
 
-              <p className="text-xs text-[#94A3B8] text-center mt-4">
+              <p className="text-xs text-[#8B94AB] text-center mt-4">
                 Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
               </p>
             </form>

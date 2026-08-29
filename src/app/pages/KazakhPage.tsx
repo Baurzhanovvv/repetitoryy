@@ -22,7 +22,7 @@ const ContactFormWithLang = withLanguageSupport(ContactForm);
 
 export function KazakhPage() {
   return (
-    <div className="min-h-screen" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div className="min-h-screen" style={{ fontFamily: "'Golos Text', sans-serif" }}>
       {/* Navigation */}
       <Navigation language="kazakh" />
 
@@ -37,16 +37,16 @@ export function KazakhPage() {
         <SolutionsWithLang language="kazakh" />
       </div>
 
+      {/* 6. Teachers (Преподаватели) */}
+      <div id="teachers">
+        <TeachersWithLang language="kazakh" />
+      </div>
+
       {/* 4. How It Works (Как проходят занятия) */}
       <HowItWorksWithLang language="kazakh" />
 
       {/* Секция «Результаты» скрыта: реальных кейсов учеников
           казахского пока нет, а английские сюда не подходят. */}
-
-      {/* 6. Teachers (Преподаватели) */}
-      <div id="teachers">
-        <TeachersWithLang language="kazakh" />
-      </div>
 
       {/* Секция «Отзывы» скрыта: имеющиеся отзывы — про английский. */}
 

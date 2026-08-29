@@ -40,7 +40,7 @@ export function Navigation({ language }: NavigationProps) {
     ...(language === 'kazakh' ? [] : [{ label: "Отзывы", id: "testimonials" }])
   ];
 
-  const primaryColor = language === 'kazakh' ? '#F97316' : '#2563EB';
+  const primaryColor = language === 'kazakh' ? '#D9541C' : '#1E45B8';
 
   return (
     <>
@@ -64,7 +64,7 @@ export function Navigation({ language }: NavigationProps) {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="text-[#1E293B] hover:text-[#2563EB] transition-colors font-medium text-sm xl:text-base"
+                  className="text-[#101A2E] hover:text-[#1E45B8] transition-colors font-medium text-sm xl:text-base"
                   style={{ 
                     ['--hover-color' as string]: primaryColor
                   } as React.CSSProperties}
@@ -75,7 +75,7 @@ export function Navigation({ language }: NavigationProps) {
               <Button
                 onClick={() => scrollToSection("contact-form")}
                 className="text-white rounded-xl px-6"
-                style={{ backgroundColor: '#F97316' }}
+                style={{ backgroundColor: '#D9541C' }}
               >
                 Записаться
               </Button>
@@ -84,7 +84,7 @@ export function Navigation({ language }: NavigationProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden text-[#1E293B]"
+              className="lg:hidden text-[#101A2E]"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -102,7 +102,7 @@ export function Navigation({ language }: NavigationProps) {
               {language && (
                 <Link
                   to="/"
-                  className="flex items-center gap-2 py-3 text-[#64748B] hover:text-[#1E293B] transition-colors border-b border-gray-100"
+                  className="flex items-center gap-2 py-3 text-[#5A6480] hover:text-[#101A2E] transition-colors border-b border-gray-100"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Home className="w-4 h-4" />
@@ -113,7 +113,7 @@ export function Navigation({ language }: NavigationProps) {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="block w-full text-left py-3 text-[#1E293B] hover:text-[#2563EB] transition-colors font-medium border-b border-gray-100 last:border-0"
+                  className="block w-full text-left py-3 text-[#101A2E] hover:text-[#1E45B8] transition-colors font-medium border-b border-gray-100 last:border-0"
                 >
                   {link.label}
                 </button>
@@ -121,7 +121,7 @@ export function Navigation({ language }: NavigationProps) {
               <Button
                 onClick={() => scrollToSection("contact-form")}
                 className="w-full text-white rounded-xl mt-4 py-6"
-                style={{ backgroundColor: '#F97316' }}
+                style={{ backgroundColor: '#D9541C' }}
               >
                 Записаться на бесплатный урок
               </Button>
