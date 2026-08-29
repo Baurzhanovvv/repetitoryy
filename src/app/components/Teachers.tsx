@@ -1,33 +1,31 @@
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import teacher1 from "../../assets/teacher1.jpeg";
-import teacher2 from "../../assets/teacher2.jpeg";
-import teacher3 from "../../assets/teacher3.jpeg";
-
 export function Teachers() {
   const teachers = [
     {
-      image: teacher1,
-      name: "Нурсулу",
-      experience: "2 года преподавания",
-      students: "Носитель казахского и турецкого",
-      certificates: "Международный сертификат английского",
-      specialization: "Преподаю английский и казахский детям и взрослым, выстраивая обучение с акцентом на развитие разговорных навыков, уверенности в общении и устойчивой мотивации к изучению языков. Имею опыт работы в международной школе английского языка JustToStudy."
-    },
-    {
-      image: teacher3,
       name: "Асылжан",
-      experience: "4 года преподавания",
-      students: "Основатель онлайн-школы",
-      certificates: "Авторская методика IELTS",
-      specialization: "Основатель онлайн-школы Репетитор Рядом. Основатель авторской методики «учим Казахский как иностранный». Опыт преподавания английского, казахского, IELTS 4 года."
+      role: "Основатель школы",
+      facts: [
+        "Авторская методика подготовки к IELTS",
+        "Методика «казахский как иностранный»"
+      ],
+      about: "Преподаю английский, казахский и готовлю к IELTS. Основатель онлайн-школы Репетитор Рядом."
     },
     {
-      image: teacher2,
+      name: "Нурсулу",
+      role: "Английский и казахский",
+      facts: [
+        "Носитель казахского и турецкого",
+        "Международный сертификат по английскому"
+      ],
+      about: "Веду занятия с детьми и взрослыми: упор на разговорные навыки, уверенность в общении и мотивацию. Работала в международной школе английского JustToStudy."
+    },
+    {
       name: "Дания",
-      experience: "2 года преподавания",
-      students: "Носитель казахского языка",
-      certificates: "IELTS C1",
-      specialization: "Преподаю английский и казахский языки детям и взрослым, помогая развивать уверенность в разговоре и мотивацию к обучению. Ранее работала в международной школе английского языка AntiSchool."
+      role: "Английский и казахский",
+      facts: [
+        "Носитель казахского языка",
+        "IELTS C1"
+      ],
+      about: "Помогаю развить уверенность в разговоре и не бросить на полпути. Ранее работала в международной школе английского AntiSchool."
     }
   ];
 
@@ -46,32 +44,47 @@ export function Teachers() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <ul className="max-w-[880px] border-t border-[#DCE1ED]">
           {teachers.map((teacher, index) => (
-            <div key={index} className="bg-white border border-[#DCE1ED] rounded-[18px] overflow-hidden hover:border-[#C3CCE2] transition-colors duration-200">
-              <ImageWithFallback
-                src={teacher.image}
-                alt={teacher.name}
-                className="w-full aspect-[4/5] object-cover"
-              />
-              <div className="px-5 pt-5 pb-6">
-                <div className="text-[#101A2E] text-xl font-bold tracking-[-0.01em]" style={{ fontFamily: 'Onest, sans-serif' }}>
-                  {teacher.name}
+            <li
+              key={index}
+              className="grid grid-cols-[52px_1fr] md:grid-cols-[64px_1fr] gap-4 md:gap-6 py-6 md:py-7 border-b border-[#DCE1ED] group"
+            >
+              {/* Аватар с инициалом — без фотографий */}
+              <div
+                className="w-[52px] h-[52px] md:w-16 md:h-16 rounded-2xl bg-[#E8EDFB] text-[#1E45B8] flex items-center justify-center text-[22px] md:text-[26px] font-extrabold select-none transition-colors duration-200 group-hover:bg-[#1E45B8] group-hover:text-white"
+                style={{ fontFamily: 'Onest, sans-serif' }}
+                aria-hidden="true"
+              >
+                {teacher.name.charAt(0)}
+              </div>
+
+              <div>
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="text-[#101A2E] text-xl md:text-[22px] font-bold tracking-[-0.01em]" style={{ fontFamily: 'Onest, sans-serif' }}>
+                    {teacher.name}
+                  </span>
+                  <span className="text-[#5A6480] text-[15px]">{teacher.role}</span>
                 </div>
-                <div className="text-[#D9541C] text-sm font-semibold mt-0.5" style={{ fontFamily: 'Onest, sans-serif' }}>
-                  {teacher.experience}
+
+                <div className="flex flex-wrap gap-2 mt-2.5">
+                  {teacher.facts.map((fact, i) => (
+                    <span
+                      key={i}
+                      className="text-[#3E4A66] text-[13.5px] bg-[#EFF1F7] border border-[#DCE1ED] rounded-lg px-2.5 py-1"
+                    >
+                      {fact}
+                    </span>
+                  ))}
                 </div>
-                <ul className="mt-3.5 pt-3.5 border-t border-[#DCE1ED] grid gap-2">
-                  <li className="flex gap-2 text-[#5A6480] text-[14.5px]"><span className="text-[#B8C1D6]">—</span>{teacher.students}</li>
-                  <li className="flex gap-2 text-[#5A6480] text-[14.5px]"><span className="text-[#B8C1D6]">—</span>{teacher.certificates}</li>
-                </ul>
-                <p className="text-[#5A6480] text-[14.5px] leading-relaxed mt-3">
-                  {teacher.specialization}
+
+                <p className="text-[#5A6480] text-[15.5px] leading-relaxed mt-3 max-w-[62ch]">
+                  {teacher.about}
                 </p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
