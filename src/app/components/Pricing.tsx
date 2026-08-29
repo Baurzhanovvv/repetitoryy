@@ -67,7 +67,7 @@ export function Pricing() {
           {/* Promo banner */}
           <div className="inline-flex items-center gap-2 bg-[#F97316] text-white px-6 py-3 rounded-full shadow-lg">
             <Gift className="w-5 h-5" />
-            <span className="font-semibold">До конца января — 2 урока в подарок к тарифам «Оптимум» и «Максимум»</span>
+            <span className="font-semibold">До конца сентября — 2 урока в подарок к тарифам «Оптимум» и «Максимум»</span>
           </div>
         </div>
 

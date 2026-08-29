@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -87,12 +87,6 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/70">
-                <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <a href="mailto:info@repetitor.kz" className="hover:text-white transition-colors">
-                  info@repetitor.kz
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-white/70">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <span>Алматы, Казахстан</span>
               </li>
@@ -102,7 +96,7 @@ export function Footer() {
 
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/60 text-sm text-center md:text-left">
-            © 2025 Репетитор Рядом. Все права защищены.
+            © {new Date().getFullYear()} Репетитор Рядом. Все права защищены.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-white/60 hover:text-white transition-colors">

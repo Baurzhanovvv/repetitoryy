@@ -7,8 +7,8 @@ export function Testimonials() {
   const testimonials = [
     {
       text: "Хочу выразить благодарность моему учителю английского языка! Объясняет понятно, всегда поддерживает даже тогда, когда что-то не получается. Уроки проходят интересно и живо — много практики, диалогов, игр. Я начала говорить увереннее и лучше понимать английскую речь. Занималась я пару месяцев и смогла поднять свой уровень английского языка!! Учителя очень добрые, всегда объясняют очень терпеливы. Проявляют интерес к английскому языку, моментально появляется мотивация изучать английский язык.",
-      parent: "Студент",
-      relation: "ученица школы",
+      parent: "Ученица школы",
+      relation: "",
       image: student1
     },
     {
@@ -85,9 +85,11 @@ export function Testimonials() {
                   <p className="font-semibold text-[#1E293B] text-lg" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                     {testimonial.parent}
                   </p>
-                  <p className="text-sm text-[#64748B]">
-                    {testimonial.relation}
-                  </p>
+                  {testimonial.relation && (
+                    <p className="text-sm text-[#64748B]">
+                      {testimonial.relation}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

@@ -143,7 +143,7 @@ export function HomePage() {
       {/* Footer */}
       <footer className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center text-[#94A3B8]">
-          <p>&copy; 2026 Онлайн-школа репетиторства. Все права защищены.</p>
+          <p>&copy; {new Date().getFullYear()} Репетитор Рядом. Все права защищены.</p>
         </div>
       </footer>
     </div>
