@@ -16,7 +16,6 @@ import { WhatsAppFloat } from "../components/WhatsAppFloat";
 import { withLanguageSupport } from "../utils/withLanguageSupport";
 
 // Wrap components that haven't been migrated yet
-const PainPointsWithLang = withLanguageSupport(PainPoints);
 const SolutionsWithLang = withLanguageSupport(Solutions);
 const HowItWorksWithLang = withLanguageSupport(HowItWorks);
 const ResultsWithLang = withLanguageSupport(Results);
@@ -36,7 +35,7 @@ export function EnglishPage() {
       <Hero language="english" />
 
       {/* 2. Pain Points (Проблемы) */}
-      <PainPointsWithLang language="english" />
+      <PainPoints language="english" />
 
       {/* CTA Banner */}
       <CTABanner />
@@ -78,7 +77,7 @@ export function EnglishPage() {
       </div>
 
       {/* Footer */}
-      <Footer />
+      <Footer language="english" />
 
       {/* Mobile Fixed CTA */}
       <MobileFixedCTA />

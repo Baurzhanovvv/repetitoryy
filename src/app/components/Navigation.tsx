@@ -30,12 +30,14 @@ export function Navigation({ language }: NavigationProps) {
     }
   };
 
+  // На казахской странице нет секций «Результаты» и «Отзывы» —
+  // пока для казахского нет реальных кейсов и отзывов учеников.
   const navLinks = [
     { label: "О школе", id: "solutions" },
     { label: "Преподаватели", id: "teachers" },
-    { label: "Результаты", id: "results" },
+    ...(language === 'kazakh' ? [] : [{ label: "Результаты", id: "results" }]),
     { label: "Цены", id: "pricing" },
-    { label: "Отзывы", id: "testimonials" }
+    ...(language === 'kazakh' ? [] : [{ label: "Отзывы", id: "testimonials" }])
   ];
 
   const primaryColor = language === 'kazakh' ? '#F97316' : '#2563EB';

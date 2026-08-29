@@ -1,7 +1,13 @@
 import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { Logo } from "./Logo";
+import { Language } from "../config/content";
 
-export function Footer() {
+interface FooterProps {
+  language?: Language;
+}
+
+export function Footer({ language }: FooterProps) {
+  const hasStudentSections = language !== 'kazakh';
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -50,21 +56,25 @@ export function Footer() {
                   Преподаватели
                 </button>
               </li>
+              {hasStudentSections && (
               <li>
-                <button onClick={() => scrollToSection("results")} className="text-white/70 hover:text-white transition-colors text-left">
-                  Результаты
-                </button>
-              </li>
+                  <button onClick={() => scrollToSection("results")} className="text-white/70 hover:text-white transition-colors text-left">
+                    Результаты
+                  </button>
+                </li>
+              )}
               <li>
                 <button onClick={() => scrollToSection("pricing")} className="text-white/70 hover:text-white transition-colors text-left">
                   Цены
                 </button>
               </li>
+              {hasStudentSections && (
               <li>
-                <button onClick={() => scrollToSection("testimonials")} className="text-white/70 hover:text-white transition-colors text-left">
-                  Отзывы
-                </button>
-              </li>
+                  <button onClick={() => scrollToSection("testimonials")} className="text-white/70 hover:text-white transition-colors text-left">
+                    Отзывы
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 

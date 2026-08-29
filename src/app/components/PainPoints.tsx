@@ -1,7 +1,12 @@
-import { XCircle, MessageSquareX, Clock, Frown } from "lucide-react";
+import { XCircle, MessageSquareX, Clock, Frown, Users } from "lucide-react";
+import { Language } from "../config/content";
 
-export function PainPoints() {
-  const painPoints = [
+interface PainPointsProps {
+  language?: Language;
+}
+
+const painPointsByLanguage: Record<Language, { icon: typeof XCircle; title: string; description: string }[]> = {
+  english: [
     {
       icon: XCircle,
       title: "Учим английский 3 года — результата ноль",
@@ -22,7 +27,33 @@ export function PainPoints() {
       title: "Скучные уроки — ребёнок не хочет заниматься",
       description: "Зубрёжка, учебники из 90-х, никакого интереса. Каждое занятие — борьба и уговоры."
     }
-  ];
+  ],
+  kazakh: [
+    {
+      icon: XCircle,
+      title: "Учит казахский с первого класса — а говорить не может",
+      description: "В школе язык проходят по учебнику: правила, тексты, пересказ. Ребёнок знает слова, но живой разговор не поддерживает."
+    },
+    {
+      icon: MessageSquareX,
+      title: "Понимает, но отвечает по-русски",
+      description: "К нему обращаются на казахском — он всё понял, а ответить не может. С каждым разом привычка переключаться на русский закрепляется сильнее."
+    },
+    {
+      icon: Users,
+      title: "Дома не с кем практиковать",
+      description: "В семье говорят по-русски, языковой среды нет. Выученное на уроке негде применить — через неделю оно забывается."
+    },
+    {
+      icon: Frown,
+      title: "Скучные уроки — ребёнок не хочет заниматься",
+      description: "Зубрёжка правил и пересказы наизусть, никакого интереса. Каждое занятие — борьба и уговоры."
+    }
+  ]
+};
+
+export function PainPoints({ language = "english" }: PainPointsProps) {
+  const painPoints = painPointsByLanguage[language];
 
   return (
     <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white via-[#FFF7ED]/30 to-white relative overflow-hidden">

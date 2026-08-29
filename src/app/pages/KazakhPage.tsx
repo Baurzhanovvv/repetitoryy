@@ -2,9 +2,7 @@ import { Hero } from "../components/Hero";
 import { PainPoints } from "../components/PainPoints";
 import { Solutions } from "../components/Solutions";
 import { HowItWorks } from "../components/HowItWorks";
-import { Results } from "../components/Results";
 import { Teachers } from "../components/Teachers";
-import { Testimonials } from "../components/Testimonials";
 import { Pricing } from "../components/Pricing";
 import { FAQ } from "../components/FAQ";
 import { ContactForm } from "../components/ContactForm";
@@ -15,12 +13,9 @@ import { WhatsAppFloat } from "../components/WhatsAppFloat";
 import { withLanguageSupport } from "../utils/withLanguageSupport";
 
 // Wrap components that haven't been migrated yet
-const PainPointsWithLang = withLanguageSupport(PainPoints);
 const SolutionsWithLang = withLanguageSupport(Solutions);
 const HowItWorksWithLang = withLanguageSupport(HowItWorks);
-const ResultsWithLang = withLanguageSupport(Results);
 const TeachersWithLang = withLanguageSupport(Teachers);
-const TestimonialsWithLang = withLanguageSupport(Testimonials);
 const PricingWithLang = withLanguageSupport(Pricing);
 const FAQWithLang = withLanguageSupport(FAQ);
 const ContactFormWithLang = withLanguageSupport(ContactForm);
@@ -35,7 +30,7 @@ export function KazakhPage() {
       <Hero language="kazakh" />
 
       {/* 2. Pain Points (Проблемы) */}
-      <PainPointsWithLang language="kazakh" />
+      <PainPoints language="kazakh" />
 
       {/* 3. Solutions (Решения) */}
       <div id="solutions">
@@ -45,20 +40,15 @@ export function KazakhPage() {
       {/* 4. How It Works (Как проходят занятия) */}
       <HowItWorksWithLang language="kazakh" />
 
-      {/* 5. Results (Результаты учеников) */}
-      <div id="results">
-        <ResultsWithLang language="kazakh" />
-      </div>
+      {/* Секция «Результаты» скрыта: реальных кейсов учеников
+          казахского пока нет, а английские сюда не подходят. */}
 
       {/* 6. Teachers (Преподаватели) */}
       <div id="teachers">
         <TeachersWithLang language="kazakh" />
       </div>
 
-      {/* 7. Testimonials (Отзывы родителей) */}
-      <div id="testimonials">
-        <TestimonialsWithLang language="kazakh" />
-      </div>
+      {/* Секция «Отзывы» скрыта: имеющиеся отзывы — про английский. */}
 
       {/* 8. Pricing (Тарифы) */}
       <div id="pricing">
@@ -74,7 +64,7 @@ export function KazakhPage() {
       </div>
 
       {/* Footer */}
-      <Footer />
+      <Footer language="kazakh" />
 
       {/* Mobile Fixed CTA */}
       <MobileFixedCTA />
