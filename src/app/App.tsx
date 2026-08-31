@@ -3,6 +3,7 @@ import { HomePage } from "./pages/HomePage";
 import { EnglishPage } from "./pages/EnglishPage";
 import { KazakhPage } from "./pages/KazakhPage";
 import { ThankYouPage } from "./pages/ThankYouPage";
+import { PrivacyPage } from "./pages/PrivacyPage";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/english" element={<EnglishPage />} />
         <Route path="/kazakh" element={<KazakhPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
         <Route path="/thanks" element={<ThankYouPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />

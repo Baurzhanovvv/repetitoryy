@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { Logo } from "./Logo";
 import { Language } from "../config/content";
@@ -109,12 +110,9 @@ export function Footer({ language }: FooterProps) {
             © {new Date().getFullYear()} Репетитор Рядом. Все права защищены.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-white/60 hover:text-white transition-colors">
+            <Link to="/privacy" className="text-white/60 hover:text-white transition-colors">
               Политика конфиденциальности
-            </a>
-            <a href="#" className="text-white/60 hover:text-white transition-colors">
-              Договор оферты
-            </a>
+            </Link>
           </div>
         </div>
       </div>

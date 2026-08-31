@@ -4,7 +4,7 @@ import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { CheckCircle } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { getContent, Language } from "../config/content";
 import { sendToTelegram } from "../utils/telegram";
 
@@ -188,7 +188,8 @@ export function Hero({ language }: HeroProps) {
               </a>
 
               <p className="text-xs text-[#8B94AB] text-center pt-3">
-                Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                Нажимая кнопку, вы соглашаетесь с{' '}
+                <Link to="/privacy" className="underline hover:text-[#1E45B8]">политикой конфиденциальности</Link>
               </p>
             </form>
           </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -154,7 +154,8 @@ export function ContactForm() {
               </Button>
 
               <p className="text-xs text-[#8B94AB] text-center mt-4">
-                Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                Нажимая кнопку, вы соглашаетесь с{' '}
+                <Link to="/privacy" className="underline hover:text-[#1E45B8]">политикой конфиденциальности</Link>
               </p>
             </form>
           </div>
