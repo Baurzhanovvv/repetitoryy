@@ -113,6 +113,9 @@ export function Footer({ language }: FooterProps) {
             <Link to="/privacy" className="text-white/60 hover:text-white transition-colors">
               Политика конфиденциальности
             </Link>
+            <Link to="/offer" className="text-white/60 hover:text-white transition-colors">
+              Договор оферты
+            </Link>
           </div>
         </div>
       </div>
