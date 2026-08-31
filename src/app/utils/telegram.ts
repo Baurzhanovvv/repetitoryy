@@ -1,6 +1,12 @@
-// Конфигурация Telegram Bot
-const TELEGRAM_BOT_TOKEN = '8194151542:AAF7OaJppJpoj3kMAAHdn6RlN23PlLcBczc'; // Замените на токен вашего бота от @BotFather
-const TELEGRAM_CHAT_ID = '-5277748590'; // Замените на ваш chat ID
+/**
+ * Отправка заявки.
+ *
+ * Заявка уходит на наш же сервер (/api/lead), а он уже пересылает её в Telegram.
+ * Токен бота лежит на сервере в /etc/lead-proxy.env и в браузер не попадает —
+ * раньше он был вписан прямо сюда и уезжал в JS-бандл, доступный кому угодно.
+ */
+
+const LEAD_ENDPOINT = '/api/lead';
 
 interface FormData {
   childName: string;
@@ -12,45 +18,22 @@ interface FormData {
 }
 
 export async function sendToTelegram(formData: FormData): Promise<boolean> {
-  const message = `
-🎓 *Новая заявка на пробный урок!*
-
-👤 *Имя ребёнка:* ${formData.childName}
-🎂 *Возраст:* ${formData.age} лет
-📱 *Телефон:* ${formData.phone}
-${formData.time ? `⏰ *Удобное время:* ${formData.time}` : ''}
-${formData.language ? `🌐 *Язык:* ${formData.language}` : ''}
-${formData.source ? `📍 *Источник:* ${formData.source}` : ''}
-
-📅 *Дата:* ${new Date().toLocaleString('ru-RU')}
-  `.trim();
-
   try {
-    const response = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: message,
-          parse_mode: 'Markdown',
-        }),
-      }
-    );
+    const response = await fetch(LEAD_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
-    const data = await response.json();
-    
-    if (!data.ok) {
-      console.error('Telegram API error:', data);
+    if (!response.ok) {
+      console.error('Не удалось отправить заявку, статус:', response.status);
       return false;
     }
 
-    return true;
+    const data = await response.json();
+    return data.ok === true;
   } catch (error) {
-    console.error('Error sending to Telegram:', error);
+    console.error('Ошибка при отправке заявки:', error);
     return false;
   }
 }

@@ -25,7 +25,7 @@ export function WhatsAppFloat() {
   return (
     <button
       onClick={handleWhatsAppClick}
-      className="hidden md:flex fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#1FA855] hover:bg-[#178F47] text-white rounded-full items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 group animate-bounce"
+      className="hidden lg:flex fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#1FA855] hover:bg-[#178F47] text-white rounded-full items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 group animate-bounce"
       aria-label="Написать в WhatsApp"
       style={{ animationDuration: '2s' }}
     >

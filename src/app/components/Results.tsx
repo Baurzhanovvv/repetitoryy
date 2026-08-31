@@ -72,7 +72,7 @@ export function Results() {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#1E45B8] hover:bg-[#1E45B8] hover:text-white transition-all duration-300"
+            className="absolute left-1 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#1E45B8] hover:bg-[#1E45B8] hover:text-white transition-all duration-300"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -80,7 +80,7 @@ export function Results() {
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#1E45B8] hover:bg-[#1E45B8] hover:text-white transition-all duration-300"
+            className="absolute right-1 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-12 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-[#1E45B8] hover:bg-[#1E45B8] hover:text-white transition-all duration-300"
             aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6" />

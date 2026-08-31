@@ -1,149 +1,129 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
-import { GraduationCap, BookOpen, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function HomePage() {
+  const font = { fontFamily: 'Onest, sans-serif' };
+
+  // Карточки намеренно разные: у языков разные поводы и разные преподаватели
+  const courses = [
+    {
+      to: "/english",
+      title: "Английский язык",
+      lead: "Разговорный, школьная программа и подготовка к экзаменам.",
+      points: [
+        "Занятия один на один, без групп",
+        "Подготовка к IELTS по авторской методике",
+        "Помощь со школьной программой и ЕНТ"
+      ],
+      accent: "text-[#1E45B8]",
+      dot: "bg-[#1E45B8]",
+      hover: "hover:border-[#1E45B8]"
+    },
+    {
+      to: "/kazakh",
+      title: "Казахский язык",
+      lead: "Для тех, кто понимает, но не говорит.",
+      points: [
+        "Преподаватели — носители языка",
+        "Методика «казахский как иностранный»",
+        "Упор на разговор, а не на зубрёжку правил"
+      ],
+      accent: "text-[#D9541C]",
+      dot: "bg-[#D9541C]",
+      hover: "hover:border-[#D9541C]"
+    }
+  ];
+
+  const trust = [
+    { title: "Первый урок — 0 ₸", note: "без предоплаты и обязательств" },
+    { title: "Занятия 45–60 минут", note: "в Google Meet, из дома" },
+    { title: "Замена преподавателя", note: "бесплатно, если не сложилось" },
+    { title: "Заморозка до 2 недель", note: "болезнь, каникулы, отъезд" }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#E8EDFB] via-[#EFF1F7] to-[#EFF1F7] flex flex-col">
-      {/* Header */}
-      <header className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <Logo />
+    <div className="min-h-screen bg-white flex flex-col" style={{ fontFamily: "'Golos Text', sans-serif" }}>
+      <header className="border-b border-[#DCE1ED]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-[68px] flex items-center">
+          <Logo />
+        </div>
       </header>
 
-      {/* Main Content */}
-      <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-        <div className="max-w-6xl w-full">
-          {/* Title Section */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <GraduationCap className="w-12 h-12 text-[#1E45B8]" />
-              <div className="text-4xl">🎓</div>
-            </div>
-            <h1 className="text-[40px] md:text-[52px] lg:text-[64px] mb-6 text-[#101A2E]" style={{ fontFamily: 'Onest, sans-serif' }}>
-              Языковая онлайн школа <span className="text-[#1E45B8]">казахского</span> и <span className="text-[#1E45B8]">английского</span> языка
-            </h1>
-            <p className="text-xl md:text-2xl text-[#3E4A66] max-w-3xl mx-auto leading-relaxed">
-              Индивидуальные занятия с профессиональными преподавателями для детей 10-17 лет
-            </p>
+      <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <div className="max-w-[38em]">
+          <div className="text-[#1E45B8] text-xs font-semibold tracking-[0.14em] uppercase" style={font}>
+            Онлайн-школа · дети 10–17 лет
           </div>
+          <h1
+            className="text-[#101A2E] text-[32px] md:text-[44px] font-extrabold tracking-[-0.02em] leading-[1.12] mt-3 mb-4 text-balance"
+            style={font}
+          >
+            Индивидуальные занятия английским и казахским
+          </h1>
+          <p className="text-[#5A6480] text-lg md:text-xl leading-relaxed">
+            Один на один с преподавателем, из дома. Выберите язык — покажем программу,
+            цены и истории учеников.
+          </p>
+        </div>
 
-          {/* Service Cards */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* English Card */}
-            <Link 
-              to="/english"
-              className="group relative bg-white rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-[#1E45B8]/20"
+        <div className="grid md:grid-cols-2 gap-5 mt-10 md:mt-12 max-w-5xl">
+          {courses.map((course) => (
+            <Link
+              key={course.to}
+              to={course.to}
+              className={`group bg-white border border-[#DCE1ED] ${course.hover} rounded-[18px] p-7 md:p-8 transition-colors duration-200 block`}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#1E45B8]/5 rounded-full blur-2xl"></div>
-              
-              <div className="relative">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-[#E8EDFB] rounded-2xl flex items-center justify-center group-hover:bg-[#1E45B8] transition-colors duration-300">
-                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8 16C8 13.7909 9.79086 12 12 12H20C22.2091 12 24 13.7909 24 16V22C24 24.2091 22.2091 26 20 26H15L11 30V26H12C9.79086 26 8 24.2091 8 22V16Z" className="fill-[#1E45B8] group-hover:fill-white transition-colors duration-300"/>
-                      <text x="16" y="21" className="fill-white group-hover:fill-[#1E45B8] transition-colors duration-300" fontSize="10" fontWeight="bold" fontFamily="Onest, sans-serif" textAnchor="middle">Q</text>
-                      <text x="30" y="14" fontSize="12">🇺🇸</text>
-                    </svg>
-                  </div>
-                  <ChevronRight className="w-8 h-8 text-[#C3CCE2] group-hover:text-[#1E45B8] transition-colors duration-300 group-hover:translate-x-1 transition-transform" />
-                </div>
-
-                <h2 className="text-[32px] mb-4 text-[#101A2E] group-hover:text-[#1E45B8] transition-colors duration-300" style={{ fontFamily: 'Onest, sans-serif' }}>
-                  Английский язык
+              <div className="flex items-start justify-between gap-4">
+                <h2 className="text-[#101A2E] text-[24px] md:text-[26px] font-bold tracking-[-0.01em]" style={font}>
+                  {course.title}
                 </h2>
-
-                <p className="text-[#5A6480] text-lg leading-relaxed mb-6">
-                  Профессиональное обучение английскому языку с индивидуальным подходом
-                </p>
-
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-[#3E4A66]">
-                    <div className="w-2 h-2 bg-[#1E45B8] rounded-full"></div>
-                    <span>Индивидуальный подход</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-[#3E4A66]">
-                    <div className="w-2 h-2 bg-[#1E45B8] rounded-full"></div>
-                    <span>Качественный процесс</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-[#3E4A66]">
-                    <div className="w-2 h-2 bg-[#1E45B8] rounded-full"></div>
-                    <span>Качественная обратная связь</span>
-                  </div>
-                  <div className="flex items-start gap-3 text-[#3E4A66] mt-4 pt-3 border-t border-gray-100">
-                    <div className="w-2 h-2 bg-[#1E45B8] rounded-full mt-1.5"></div>
-                    <span className="text-sm">Мы создаём качественный рабочий процесс и предоставляем хорошие условия!</span>
-                  </div>
-                </div>
+                <ArrowRight className={`w-6 h-6 flex-shrink-0 mt-1 text-[#C3CCE2] transition-all duration-200 group-hover:translate-x-1 ${course.accent.replace('text-', 'group-hover:text-')}`} />
               </div>
-            </Link>
 
-            {/* Kazakh Card */}
-            <Link 
-              to="/kazakh"
-              className="group relative bg-white rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-[#D9541C]/20"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#D9541C]/5 rounded-full blur-2xl"></div>
-              
-              <div className="relative">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-[#EFF1F7] rounded-2xl flex items-center justify-center group-hover:bg-[#D9541C] transition-colors duration-300">
-                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M8 16C8 13.7909 9.79086 12 12 12H20C22.2091 12 24 13.7909 24 16V22C24 24.2091 22.2091 26 20 26H15L11 30V26H12C9.79086 26 8 24.2091 8 22V16Z" className="fill-[#D9541C] group-hover:fill-white transition-colors duration-300"/>
-                      <text x="16" y="21" className="fill-white group-hover:fill-[#D9541C] transition-colors duration-300" fontSize="10" fontWeight="bold" fontFamily="Onest, sans-serif" textAnchor="middle">Ә</text>
-                      <text x="30" y="14" fontSize="12">🎓</text>
-                    </svg>
-                  </div>
-                  <ChevronRight className="w-8 h-8 text-[#C3CCE2] group-hover:text-[#D9541C] transition-colors duration-300 group-hover:translate-x-1 transition-transform" />
-                </div>
-
-                <h2 className="text-[32px] mb-4 text-[#101A2E] group-hover:text-[#D9541C] transition-colors duration-300" style={{ fontFamily: 'Onest, sans-serif' }}>
-                  Казахский язык
-                </h2>
-
-                <p className="text-[#5A6480] text-lg leading-relaxed mb-6">
-                  Профессиональное обучение казахскому языку с индивидуальным подходом
-                </p>
-
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-[#3E4A66]">
-                    <div className="w-2 h-2 bg-[#D9541C] rounded-full"></div>
-                    <span>Индивидуальный подход</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-[#3E4A66]">
-                    <div className="w-2 h-2 bg-[#D9541C] rounded-full"></div>
-                    <span>Качественный процесс</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-[#3E4A66]">
-                    <div className="w-2 h-2 bg-[#D9541C] rounded-full"></div>
-                    <span>Качественная обратная связь</span>
-                  </div>
-                  <div className="flex items-start gap-3 text-[#3E4A66] mt-4 pt-3 border-t border-gray-100">
-                    <div className="w-2 h-2 bg-[#D9541C] rounded-full mt-1.5"></div>
-                    <span className="text-sm">Мы создаём качественный рабочий процесс и предоставляем хорошие условия!</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          {/* Additional Info */}
-          <div className="mt-16 text-center space-y-4">
-            <p className="text-[#5A6480] text-lg">
-              Первое занятие — <span className="text-[#1E45B8] font-semibold">бесплатно</span>. Без обязательств.
-            </p>
-            <div className="max-w-2xl mx-auto bg-amber-50 border border-amber-200 rounded-2xl p-4 md:p-6">
-              <p className="text-sm md:text-base text-amber-900 leading-relaxed">
-                ⚠️ <strong>Важно:</strong> Мы не гарантируем быстрый результат, так как это зависит от самого ученика и его желания, но гарантируем хорошие условия
+              <p className="text-[#5A6480] text-[16.5px] leading-relaxed mt-2.5 mb-5">
+                {course.lead}
               </p>
+
+              <ul className="grid gap-2.5">
+                {course.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-[#3E4A66] text-[15.5px]">
+                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2 ${course.dot}`}></span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+
+              <span className={`inline-block mt-6 font-semibold ${course.accent}`} style={font}>
+                Смотреть программу →
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-12 md:mt-14 border-t border-[#DCE1ED] grid grid-cols-2 md:grid-cols-4 max-w-5xl">
+          {trust.map((item) => (
+            <div
+              key={item.title}
+              className="py-5 pr-5 md:px-5 md:first:pl-0 border-[#DCE1ED] md:border-r md:last:border-r-0 [&:nth-child(-n+2)]:border-b md:[&:nth-child(-n+2)]:border-b-0 [&:nth-child(even)]:pl-5 md:[&:nth-child(even)]:pl-5"
+            >
+              <b className="block text-[15px] font-bold text-[#101A2E]" style={font}>{item.title}</b>
+              <span className="text-[#5A6480] text-sm">{item.note}</span>
             </div>
-          </div>
+          ))}
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center text-[#8B94AB]">
-          <p>&copy; {new Date().getFullYear()} Репетитор Рядом. Все права защищены.</p>
+      <footer className="border-t border-[#DCE1ED]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-7 flex flex-col md:flex-row md:items-center justify-between gap-4 text-[15px]">
+          <p className="text-[#5A6480]">
+            © {new Date().getFullYear()} Репетитор Рядом. Алматы, Казахстан
+          </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <a href="tel:+77475252582" className="text-[#5A6480] hover:text-[#101A2E]">+7 (747) 525-25-82</a>
+            <Link to="/privacy" className="text-[#5A6480] hover:text-[#101A2E]">Политика конфиденциальности</Link>
+            <Link to="/offer" className="text-[#5A6480] hover:text-[#101A2E]">Договор оферты</Link>
+          </div>
         </div>
       </footer>
     </div>
