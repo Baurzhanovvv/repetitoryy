@@ -1,4 +1,4 @@
-import { Language } from '../config/content';
+import { Language } from '../content/types';
 
 // Temporary wrapper to add language prop to components that haven't been migrated yet
 // This allows the app to work while components are being updated

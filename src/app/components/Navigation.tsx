@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { Menu, X, Home } from "lucide-react";
 import { Logo } from "./Logo";
 import { Link } from "react-router-dom";
-import { Language } from "../config/content";
+import type { Language } from "../content/types";
 
 interface NavigationProps {
   language?: Language;

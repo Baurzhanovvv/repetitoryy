@@ -1,4 +1,5 @@
 import { Check, Star, Gift } from "lucide-react";
+import { useContent } from "../content/ContentProvider";
 import { Button } from "./ui/button";
 
 export function Pricing() {
@@ -9,67 +10,28 @@ export function Pricing() {
     }
   };
 
-  const plans = [
-    {
-      name: "СТАРТ",
-      lessons: "8 занятий",
-      price: "52 000 ₸",
-      pricePerLesson: "6 500 ₸ / занятие",
-      duration: "Срок: 1 месяц",
-      popular: false,
-      discount: null,
-      saving: null
-    },
-    {
-      name: "ОПТИМУМ",
-      lessons: "24 занятия",
-      price: "138 000 ₸",
-      oldPrice: "168 000 ₸",
-      pricePerLesson: "5 750 ₸ / занятие",
-      duration: "Срок: 3 месяца",
-      popular: true,
-      discount: "-18%",
-      saving: "Экономия 30 000 ₸"
-    },
-    {
-      name: "МАКСИМУМ",
-      lessons: "48 занятий",
-      price: "240 000 ₸",
-      oldPrice: "336 000 ₸",
-      pricePerLesson: "5 000 ₸ / занятие",
-      duration: "Срок: 6 месяцев",
-      popular: false,
-      discount: "-29%",
-      saving: "Экономия 96 000 ₸"
-    }
-  ];
-
-  const includedFeatures = [
-    "Индивидуальные занятия 45-60 минут",
-    "Персональная программа обучения",
-    "Домашние задания и проверка",
-    "Ежемесячный отчёт о прогрессе",
-    "Возможность заморозки (до 2 недель)"
-  ];
+  const content = useContent().pricing;
+  const plans = content.plans;
+  const includedFeatures = content.included;
 
   return (
     <section className="py-14 md:py-20 bg-[#EFF1F7]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-[34em] mb-9">
           <div className="text-[#1E45B8] text-xs font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: 'Onest, sans-serif' }}>
-            Абонементы
+            {content.eyebrow}
           </div>
           <h2 className="text-[#101A2E] text-[27px] md:text-[36px] font-bold tracking-[-0.02em] mt-2.5 mb-3 text-balance" style={{ fontFamily: 'Onest, sans-serif' }}>
-            Чем длиннее абонемент, тем дешевле занятие
+            {content.title}
           </h2>
           <p className="text-[#5A6480] text-[17px] md:text-lg">
-            Только абонементы — регулярность и есть то, что даёт результат.
+            {content.subtitle}
           </p>
         </div>
 
         <div className="inline-flex items-center gap-2 mb-8 px-4 py-2.5 rounded-xl bg-[#FBEBE2] text-[#D9541C] text-[15px] font-semibold" style={{ fontFamily: 'Onest, sans-serif' }}>
           <Gift className="w-4 h-4" />
-          До конца сентября — 2 урока в подарок к тарифам «Оптимум» и «Максимум»
+          {content.promo}
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 items-start">

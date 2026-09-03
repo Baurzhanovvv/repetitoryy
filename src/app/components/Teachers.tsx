@@ -1,46 +1,21 @@
+import { useContent } from "../content/ContentProvider";
+
 export function Teachers() {
-  const teachers = [
-    {
-      name: "Асылжан",
-      role: "Основатель школы",
-      facts: [
-        "Авторская методика подготовки к IELTS",
-        "Методика «казахский как иностранный»"
-      ],
-      about: "Преподаю английский, казахский и готовлю к IELTS. Основатель онлайн-школы Репетитор Рядом."
-    },
-    {
-      name: "Нурсулу",
-      role: "Английский и казахский",
-      facts: [
-        "Носитель казахского и турецкого",
-        "Международный сертификат по английскому"
-      ],
-      about: "Веду занятия с детьми и взрослыми: упор на разговорные навыки, уверенность в общении и мотивацию. Работала в международной школе английского JustToStudy."
-    },
-    {
-      name: "Дания",
-      role: "Английский и казахский",
-      facts: [
-        "Носитель казахского языка",
-        "IELTS C1"
-      ],
-      about: "Помогаю развить уверенность в разговоре и не бросить на полпути. Ранее работала в международной школе английского AntiSchool."
-    }
-  ];
+  const content = useContent().teachers;
+  const teachers = content.items;
 
   return (
     <section className="py-14 md:py-20 bg-white border-t border-[#DCE1ED]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-[34em] mb-10 md:mb-12">
           <div className="text-[#1E45B8] text-xs font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: 'Onest, sans-serif' }}>
-            Кто занимается
+            {content.eyebrow}
           </div>
           <h2 className="text-[#101A2E] text-[27px] md:text-[36px] font-bold tracking-[-0.02em] mt-2.5 mb-3 text-balance" style={{ fontFamily: 'Onest, sans-serif' }}>
-            Три преподавателя, а не поток случайных людей
+            {content.title}
           </h2>
           <p className="text-[#5A6480] text-[17px] md:text-lg">
-            Школа небольшая — вы будете знать, кто именно ведёт вашего ребёнка.
+            {content.subtitle}
           </p>
         </div>
 

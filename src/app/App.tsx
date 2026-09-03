@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { ContentProvider } from "./content/ContentProvider";
 import { HomePage } from "./pages/HomePage";
 import { EnglishPage } from "./pages/EnglishPage";
 import { KazakhPage } from "./pages/KazakhPage";
@@ -8,7 +9,8 @@ import { OfferPage } from "./pages/OfferPage";
 
 export default function App() {
   return (
-    <Router>
+    <ContentProvider>
+      <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/english" element={<EnglishPage />} />
@@ -19,6 +21,7 @@ export default function App() {
         <Route path="/thanks" element={<ThankYouPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </Router>
+      </Router>
+    </ContentProvider>
   );
 }

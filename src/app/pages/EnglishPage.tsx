@@ -17,9 +17,7 @@ import { withLanguageSupport } from "../utils/withLanguageSupport";
 // Wrap components that haven't been migrated yet
 const SolutionsWithLang = withLanguageSupport(Solutions);
 const HowItWorksWithLang = withLanguageSupport(HowItWorks);
-const ResultsWithLang = withLanguageSupport(Results);
 const TeachersWithLang = withLanguageSupport(Teachers);
-const TestimonialsWithLang = withLanguageSupport(Testimonials);
 const PricingWithLang = withLanguageSupport(Pricing);
 const FAQWithLang = withLanguageSupport(FAQ);
 const ContactFormWithLang = withLanguageSupport(ContactForm);
@@ -38,7 +36,7 @@ export function EnglishPage() {
 
       {/* 3. Результаты учеников — главное доказательство, поэтому высоко */}
       <div id="results">
-        <ResultsWithLang language="english" />
+        <Results language="english" />
       </div>
 
       {/* 4. Почему мы */}
@@ -56,7 +54,7 @@ export function EnglishPage() {
 
       {/* 7. Testimonials (Отзывы родителей) */}
       <div id="testimonials">
-        <TestimonialsWithLang language="english" />
+        <Testimonials language="english" />
       </div>
 
       {/* 8. Pricing (Тарифы) */}

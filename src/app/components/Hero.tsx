@@ -5,7 +5,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { getContent, Language } from "../config/content";
+import { useLanguageContent } from "../content/ContentProvider";
+import { useContent } from "../content/ContentProvider";
+import type { Language } from "../content/types";
 import { sendToTelegram } from "../utils/telegram";
 import { reportLeadConversion } from "../utils/analytics";
 
@@ -15,7 +17,8 @@ interface HeroProps {
 
 export function Hero({ language }: HeroProps) {
   const navigate = useNavigate();
-  const content = getContent(language);
+  const content = { hero: useLanguageContent(language).hero };
+  const site = useContent();
   const [formData, setFormData] = useState({
     childName: "",
     age: "",
@@ -42,16 +45,8 @@ export function Hero({ language }: HeroProps) {
     }
   };
 
-  const eyebrow = language === 'english'
-    ? 'Английский онлайн · 10–17 лет'
-    : 'Казахский онлайн · 10–17 лет';
-
-  const trust = [
-    { title: 'Первый урок — 0 ₸', note: 'без предоплаты и обязательств' },
-    { title: 'Занятия 45–60 минут', note: 'в Google Meet, из дома' },
-    { title: 'Замена преподавателя', note: 'бесплатно, если не сложилось' },
-    { title: 'Заморозка до 2 недель', note: 'болезнь, каникулы, отъезд' }
-  ];
+  const eyebrow = content.hero.eyebrow;
+  const trust = site.trust;
 
   return (
     <section className="bg-white border-b border-[#DCE1ED]">
@@ -177,7 +172,7 @@ export function Hero({ language }: HeroProps) {
               </div>
 
               <a
-                href="https://wa.me/77475252582"
+                href={`https://wa.me/${site.contacts.phoneRaw}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full text-base py-4 rounded-xl border-[1.5px] border-[#1FA855] text-[#1FA855] hover:bg-[#1FA855] hover:text-white transition-colors duration-300"

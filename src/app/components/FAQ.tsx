@@ -4,71 +4,36 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
+import { useContent } from "../content/ContentProvider";
 
 export function FAQ() {
-  const faqs = [
-    {
-      question: "Что если ребёнку не понравится?",
-      answer: "Первый урок бесплатный. Если после него ребёнок не захочет продолжать — вы ничего не платите. Мы создаём комфортные условия для обучения."
-    },
-    {
-      question: "Можно ли поменять преподавателя?",
-      answer: "Да, в любой момент. Мы подберём другого педагога, который лучше подойдёт вашему ребёнку. Это бесплатно."
-    },
-    {
-      question: "Какое оборудование нужно?",
-      answer: "Компьютер, ноутбук или планшет с камерой и микрофоном. Стабильный интернет. Google meet установим вместе на пробном уроке."
-    },
-    {
-      question: "Как происходит оплата?",
-      answer: "Оплата абонемента целиком перед началом занятий. Принимаем карты Visa/Mastercard, Kaspi, банковский перевод."
-    },
-    {
-      question: "Можно ли заморозить абонемент?",
-      answer: "Да, до 2 недель за период абонемента. На время болезни или отпуска. Просто предупредите за 2 дня."
-    },
-    {
-      question: "А если пропустим занятие?",
-      answer: "Предупредите за 24 часа — перенесём без потери. Если не предупредили — занятие считается проведённым."
-    }
-  ];
+  const content = useContent().faq;
 
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white to-[#EFF1F7] relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-[#1E45B8]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#1E45B8]/5 rounded-full blur-3xl"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="mb-4 text-[32px] md:text-[40px]" style={{ fontFamily: 'Onest, sans-serif', color: '#101A2E' }}>
-            Ответы на популярные вопросы
+    <section className="py-14 md:py-20 bg-white border-t border-[#DCE1ED]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[34em] mb-10">
+          <div className="text-[#1E45B8] text-xs font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: 'Onest, sans-serif' }}>
+            Вопросы
+          </div>
+          <h2 className="text-[#101A2E] text-[27px] md:text-[36px] font-bold tracking-[-0.02em] mt-2.5 mb-3 text-balance" style={{ fontFamily: 'Onest, sans-serif' }}>
+            {content.title}
           </h2>
-          <p className="text-lg md:text-xl text-[#5A6480] max-w-3xl mx-auto">
-            Всё, что вы хотели знать об обучении в нашей школе
-          </p>
+          <p className="text-[#5A6480] text-[17px] md:text-lg">{content.subtitle}</p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-white rounded-2xl border-2 border-gray-100 px-6 md:px-8 py-2 data-[state=open]:border-[#D9541C] data-[state=open]:shadow-lg transition-all"
-              >
-                <AccordionTrigger className="text-left hover:no-underline py-5">
-                  <span className="text-[#101A2E] pr-4 text-lg md:text-xl" style={{ fontFamily: 'Onest, sans-serif' }}>
-                    {faq.question}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="text-[#3E4A66] leading-relaxed pb-6 text-base md:text-lg">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+        <Accordion type="single" collapsible className="max-w-[860px] border-t border-[#DCE1ED]">
+          {content.items.map((faq, index) => (
+            <AccordionItem key={index} value={`item-${index}`} className="border-b border-[#DCE1ED]">
+              <AccordionTrigger className="text-left py-5 text-[#101A2E] text-[17px] md:text-[18.5px] font-semibold hover:no-underline" style={{ fontFamily: 'Onest, sans-serif' }}>
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-[#5A6480] text-[15.5px] md:text-base leading-relaxed pb-5 max-w-[62ch]">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );

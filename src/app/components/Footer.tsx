@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
+import { useContent } from "../content/ContentProvider";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { Logo } from "./Logo";
-import { Language } from "../config/content";
+import { Language } from "../content/types";
 
 interface FooterProps {
   language?: Language;
 }
 
 export function Footer({ language }: FooterProps) {
+  const { contacts } = useContent();
   const hasStudentSections = language !== 'kazakh';
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -31,7 +33,7 @@ export function Footer({ language }: FooterProps) {
             </p>
             <div className="flex gap-4">
               <a 
-                href="https://wa.me/77475252582" 
+                href={`https://wa.me/${contacts.phoneRaw}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 hover:bg-[#1FA855] rounded-full flex items-center justify-center transition-colors"
@@ -88,18 +90,18 @@ export function Footer({ language }: FooterProps) {
               <li className="flex items-start gap-3 text-white/70">
                 <Phone className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <a href="tel:+77475252582" className="hover:text-white transition-colors">
-                  +7 (747) 525-25-82
+                  {contacts.phone}
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/70">
                 <MessageCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <a href="https://wa.me/77475252582" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a href={`https://wa.me/${contacts.phoneRaw}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   WhatsApp
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/70">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <span>Алматы, Казахстан</span>
+                <span>{contacts.city}</span>
               </li>
             </ul>
           </div>

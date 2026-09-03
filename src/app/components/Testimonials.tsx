@@ -1,98 +1,69 @@
-import { Quote, Star } from "lucide-react";
+import { Quote } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import student1 from "../../assets/student1.jpg";
-import student2 from "../../assets/student2.jpg";
+import { useLanguageContent } from "../content/ContentProvider";
+import type { Language } from "../content/types";
 
-export function Testimonials() {
-  const testimonials = [
-    {
-      text: "Хочу выразить благодарность моему учителю английского языка! Объясняет понятно, всегда поддерживает даже тогда, когда что-то не получается. Уроки проходят интересно и живо — много практики, диалогов, игр. Я начала говорить увереннее и лучше понимать английскую речь. Занималась я пару месяцев и смогла поднять свой уровень английского языка!! Учителя очень добрые, всегда объясняют очень терпеливы. Проявляют интерес к английскому языку, моментально появляется мотивация изучать английский язык.",
-      parent: "Ученица школы",
-      relation: "",
-      image: student1
-    },
-    {
-      text: "Да, спасибо большое вам🙏🌹🌹🌹! Она одна из класса на 5 сдала, при этом ей достался билет который они не успели разобрать с учителем! Сдала самая первая, понадобилось около часа, когда вышла в коридор там все учителя удивились что она быстро ответила🤭 Это благодаря занятий с вами🙏, я так рада что вы нам попались😍 Даже я вижу какой у нее колоссальный прогресс в знаниях, не говоря про словарный запас и грамматику. Это Ваша заслуга, спасибо большое🙏💓😘",
-      parent: "Родитель",
-      relation: "мама ученицы",
-      image: student2
-    },
-    {
-      text: "Хотела бы оставить отзыв: Занимаюсь английским почти год, очень нравится как преподаёт Асылжан и Дания, я начинала с уровня Beginner, на данный момент уровень Pre-Intermediate. Уроки проходят очень интересно, в комфортной и дружелюбной атмосфере. Спасибо вам большое! 🥰",
-      parent: "Алия",
-      relation: "ученица школы",
-      image: null
-    }
-  ];
+interface TestimonialsProps {
+  language?: Language;
+}
+
+export function Testimonials({ language = "english" }: TestimonialsProps) {
+  const content = useLanguageContent(language).testimonials;
+
+  // Для казахского реальных отзывов пока нет — секция не рендерится
+  if (!content || content.items.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-[#EFF1F7] to-white relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-10 left-0 w-80 h-80 bg-[#D9541C]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-0 w-72 h-72 bg-[#1E45B8]/5 rounded-full blur-3xl"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="mb-4 text-[32px] md:text-[40px]" style={{ fontFamily: 'Onest, sans-serif', color: '#101A2E' }}>
-            Что говорят родители наших учеников
+    <section className="py-14 md:py-20 bg-[#EFF1F7]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[34em] mb-10 md:mb-12">
+          <div className="text-[#1E45B8] text-xs font-semibold tracking-[0.14em] uppercase" style={{ fontFamily: 'Onest, sans-serif' }}>
+            Отзывы
+          </div>
+          <h2 className="text-[#101A2E] text-[27px] md:text-[36px] font-bold tracking-[-0.02em] mt-2.5 mb-3 text-balance" style={{ fontFamily: 'Onest, sans-serif' }}>
+            {content.title}
           </h2>
-          <p className="text-lg md:text-xl text-[#5A6480] max-w-3xl mx-auto">
-            Реальные отзывы мам и пап, чьи дети занимаются с нами
-          </p>
+          <p className="text-[#5A6480] text-[17px] md:text-lg">{content.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <div
+        <div className="grid md:grid-cols-3 gap-5 items-start">
+          {content.items.map((review, index) => (
+            <figure
               key={index}
-              className="bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-gray-100 hover:border-[#D9541C]/30 group relative"
+              className="bg-white border border-[#DCE1ED] rounded-[18px] p-6 md:p-7 hover:border-[#C3CCE2] transition-colors duration-200"
             >
-              {/* Quote icon */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-[#D9541C] to-[#F07135] rounded-2xl flex items-center justify-center shadow-lg rotate-12 group-hover:rotate-0 transition-transform duration-300">
-                <Quote className="w-8 h-8 text-white" />
-              </div>
+              <Quote className="w-6 h-6 text-[#C3CCE2]" />
 
-              {/* Rating stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#D9541C] text-[#D9541C]" />
-                ))}
-              </div>
+              <blockquote className="text-[#3E4A66] text-[15.5px] leading-relaxed mt-4">
+                {review.text}
+              </blockquote>
 
-              {/* Review text */}
-              <p className="text-[#101A2E] leading-relaxed mb-8 text-base md:text-lg">
-                «{testimonial.text}»
-              </p>
-
-              {/* Author info */}
-              <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                {testimonial.image ? (
-                  <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-100">
-                    <ImageWithFallback
-                      src={testimonial.image}
-                      alt={testimonial.parent}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+              <figcaption className="flex items-center gap-3 mt-5 pt-5 border-t border-[#DCE1ED]">
+                {review.image ? (
+                  <ImageWithFallback
+                    src={review.image}
+                    alt={review.parent}
+                    className="w-11 h-11 rounded-full object-cover flex-shrink-0"
+                  />
                 ) : (
-                  <div className="w-14 h-14 rounded-full flex-shrink-0 border-2 border-gray-200 bg-gray-100 flex items-center justify-center">
-                    <span className="text-2xl font-semibold text-gray-400">
-                      {testimonial.parent.charAt(0)}
-                    </span>
+                  <div
+                    className="w-11 h-11 rounded-full bg-[#E8EDFB] text-[#1E45B8] flex items-center justify-center text-lg font-bold flex-shrink-0"
+                    style={{ fontFamily: 'Onest, sans-serif' }}
+                    aria-hidden="true"
+                  >
+                    {review.parent.charAt(0)}
                   </div>
                 )}
                 <div>
-                  <p className="font-semibold text-[#101A2E] text-lg" style={{ fontFamily: 'Onest, sans-serif' }}>
-                    {testimonial.parent}
-                  </p>
-                  {testimonial.relation && (
-                    <p className="text-sm text-[#5A6480]">
-                      {testimonial.relation}
-                    </p>
+                  <div className="text-[#101A2E] font-semibold" style={{ fontFamily: 'Onest, sans-serif' }}>
+                    {review.parent}
+                  </div>
+                  {review.relation && (
+                    <div className="text-[#5A6480] text-sm">{review.relation}</div>
                   )}
                 </div>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>
