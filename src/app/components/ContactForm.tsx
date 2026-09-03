@@ -6,6 +6,7 @@ import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { CheckCircle, Gift, TrendingUp } from "lucide-react";
 import { sendToTelegram } from "../utils/telegram";
+import { reportLeadConversion } from "../utils/analytics";
 
 export function ContactForm() {
   const navigate = useNavigate();
@@ -24,8 +25,8 @@ export function ContactForm() {
     });
     
     if (success) {
-      // Редирект на страницу благодарности
-      navigate('/thank-you');
+      // Конверсия засчитывается только когда заявка реально ушла
+      reportLeadConversion(() => navigate('/thank-you'));
     } else {
       alert("Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по WhatsApp.");
     }

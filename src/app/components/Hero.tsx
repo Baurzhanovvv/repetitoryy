@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getContent, Language } from "../config/content";
 import { sendToTelegram } from "../utils/telegram";
+import { reportLeadConversion } from "../utils/analytics";
 
 interface HeroProps {
   language: Language;
@@ -34,8 +35,8 @@ export function Hero({ language }: HeroProps) {
     });
     
     if (success) {
-      // Редирект на страницу благодарности
-      navigate('/thank-you');
+      // Конверсия засчитывается только когда заявка реально ушла
+      reportLeadConversion(() => navigate('/thank-you'));
     } else {
       alert("Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по WhatsApp.");
     }
