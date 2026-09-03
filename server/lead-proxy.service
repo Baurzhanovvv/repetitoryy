@@ -1,5 +1,5 @@
 [Unit]
-Description=Lead proxy: приём заявок с лендинга -> Telegram
+Description=Бэкенд лендинга: заявки в Telegram и админка контента
 After=network-online.target
 Wants=network-online.target
 
@@ -21,7 +21,10 @@ ProtectKernelTunables=true
 ProtectKernelModules=true
 ProtectControlGroups=true
 RestrictAddressFamilies=AF_INET AF_INET6
-MemoryMax=128M
+MemoryMax=256M
+
+# единственное место, куда сервису можно писать
+ReadWritePaths=/var/www/content
 
 [Install]
 WantedBy=multi-user.target
