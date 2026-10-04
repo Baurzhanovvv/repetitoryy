@@ -1,0 +1,372 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-05T00:00:00Z",
+
+  "contacts": {
+    "phone": "+7 (747) 525-25-82",
+    "phoneRaw": "77475252582",
+    "city": "Almaty, Kazakhstan",
+    "footerAbout": "Personal online English and Kazakh lessons for kids aged 10–17. An individual approach and quality teaching."
+  },
+
+  "trust": [
+    { "title": "First lesson — 0 ₸", "note": "no prepayment, no obligations" },
+    { "title": "45–60 minute lessons", "note": "on Google Meet, from home" },
+    { "title": "Teacher replacement", "note": "free if it is not a fit" },
+    { "title": "Freeze up to 2 weeks", "note": "illness, holidays, travel" }
+  ],
+
+  "home": {
+    "eyebrow": "Online school · kids 10–17",
+    "title": "One-to-one English and Kazakh lessons",
+    "subtitle": "One-on-one with a teacher, from home. Choose a language — we will show the programme, prices and student stories.",
+    "courses": [
+      {
+        "to": "/english",
+        "title": "English",
+        "lead": "Speaking, school curriculum and exam preparation.",
+        "points": [
+          "One-to-one lessons, no groups",
+          "IELTS preparation with our own method",
+          "Help with the school programme and the UNT exam"
+        ]
+      },
+      {
+        "to": "/kazakh",
+        "title": "Kazakh",
+        "lead": "For those who understand but do not speak.",
+        "points": [
+          "Native-speaker teachers",
+          "“Kazakh as a foreign language” method",
+          "Focus on speaking, not on memorising rules"
+        ]
+      }
+    ]
+  },
+
+  "solutions": {
+    "eyebrow": "What we do differently",
+    "title": "Why it works with us where it did not work before",
+    "subtitle": "Proven methods that work for hundreds of kids across Kazakhstan.",
+    "items": [
+      {
+        "title": "Individual approach",
+        "subtitle": "",
+        "description": "One-to-one lessons. The teacher is fully focused on your child. No groups — only personal attention."
+      },
+      {
+        "title": "Interactive lessons",
+        "subtitle": "",
+        "description": "Games, quizzes, videos, songs — your child does not notice how 45 minutes fly by. Learning becomes a favourite activity."
+      },
+      {
+        "title": "We make every hour count",
+        "subtitle": "Every lesson hour is an investment in your child's future",
+        "description": "Our students really get results — 90% reach their goal. For the rest, circumstances get in the way that we cannot influence."
+      },
+      {
+        "title": "Solid methodology",
+        "subtitle": "",
+        "description": "We have our own school for teachers, where we set the bar ourselves. Our teachers keep learning and improving the method."
+      }
+    ]
+  },
+
+  "howItWorks": {
+    "eyebrow": "How it works",
+    "title": "Four steps to the first changes",
+    "subtitle": "It all starts with a free lesson — you risk nothing.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Free trial lesson",
+        "description": "We meet your child, find out the level and choose a teacher. You see how a lesson goes and then decide."
+      },
+      {
+        "number": "02",
+        "title": "We build a programme",
+        "description": "An individual plan for your goals: speaking, school curriculum, exam preparation. We take your child's interests into account."
+      },
+      {
+        "number": "03",
+        "title": "Regular lessons",
+        "description": "Online lessons on Google Meet."
+      },
+      {
+        "number": "04",
+        "title": "Progress reports",
+        "description": "A regular report for parents. A separate methodologist follows your child's progress and adjusts the teacher's work."
+      }
+    ]
+  },
+
+  "teachers": {
+    "eyebrow": "Who teaches",
+    "title": "Three teachers, not a stream of random people",
+    "subtitle": "The school is small — you will know exactly who teaches your child.",
+    "items": [
+      {
+        "name": "Asylzhan",
+        "role": "Founder of the school",
+        "facts": [
+          "Own IELTS preparation method",
+          "“Kazakh as a foreign language” method"
+        ],
+        "about": "I teach English and Kazakh and prepare students for IELTS. Founder of the online school Repetitor Ryadom."
+      },
+      {
+        "name": "Nursulu",
+        "role": "English and Kazakh",
+        "facts": [
+          "Native speaker of Kazakh and Turkish",
+          "International English certificate"
+        ],
+        "about": "I teach children and adults: the focus is on speaking skills, confidence and motivation. Previously worked at the international English school JustToStudy."
+      },
+      {
+        "name": "Dania",
+        "role": "English and Kazakh",
+        "facts": [
+          "Native speaker of Kazakh",
+          "IELTS C1"
+        ],
+        "about": "I help students build confidence in speaking and not give up halfway. Previously worked at the international English school AntiSchool."
+      }
+    ]
+  },
+
+  "pricing": {
+    "eyebrow": "Subscriptions",
+    "title": "The longer the subscription, the cheaper the lesson",
+    "subtitle": "Subscriptions only — regularity is what gives results.",
+    "promo": "Until the end of September — 2 free lessons with the “Optimum” and “Maximum” plans",
+    "plans": [
+      {
+        "name": "START",
+        "lessons": "8 lessons",
+        "price": "52 000 ₸",
+        "oldPrice": "",
+        "pricePerLesson": "6 500 ₸ / lesson",
+        "duration": "Term: 1 month",
+        "popular": false,
+        "discount": "",
+        "saving": ""
+      },
+      {
+        "name": "OPTIMUM",
+        "lessons": "24 lessons",
+        "price": "138 000 ₸",
+        "oldPrice": "168 000 ₸",
+        "pricePerLesson": "5 750 ₸ / lesson",
+        "duration": "Term: 3 months",
+        "popular": true,
+        "discount": "-18%",
+        "saving": "You save 30 000 ₸"
+      },
+      {
+        "name": "MAXIMUM",
+        "lessons": "48 lessons",
+        "price": "240 000 ₸",
+        "oldPrice": "336 000 ₸",
+        "pricePerLesson": "5 000 ₸ / lesson",
+        "duration": "Term: 6 months",
+        "popular": false,
+        "discount": "-29%",
+        "saving": "You save 96 000 ₸"
+      }
+    ],
+    "includedTitle": "Included in all plans",
+    "included": [
+      "Individual 45–60 minute lessons",
+      "Personal learning programme",
+      "Homework and feedback",
+      "Monthly progress report",
+      "Freeze option (up to 2 weeks)"
+    ]
+  },
+
+  "faq": {
+    "title": "Answers to popular questions",
+    "subtitle": "Everything you wanted to know about studying at our school",
+    "items": [
+      {
+        "question": "What if my child does not like it?",
+        "answer": "The first lesson is free. If your child does not want to continue after it, you pay nothing. We create comfortable conditions for learning."
+      },
+      {
+        "question": "Can I change the teacher?",
+        "answer": "Yes, at any time. We will find another teacher who suits your child better. It is free."
+      },
+      {
+        "question": "What equipment is needed?",
+        "answer": "A computer, laptop or tablet with a camera and microphone, and a stable internet connection. We will set up Google Meet together during the trial lesson."
+      },
+      {
+        "question": "How does payment work?",
+        "answer": "The whole subscription is paid before lessons begin. We accept Visa/Mastercard, Kaspi and bank transfer."
+      },
+      {
+        "question": "Can I freeze my subscription?",
+        "answer": "Yes, for up to 2 weeks per subscription period — for illness or holidays. Just let us know 2 days in advance."
+      },
+      {
+        "question": "What if we miss a lesson?",
+        "answer": "Tell us 24 hours in advance and we will reschedule without any loss. If we are not notified, the lesson counts as held."
+      }
+    ]
+  },
+
+  "contactForm": {
+    "title": "Book a free trial lesson",
+    "subtitle": "Meet the teacher, see the method, watch how your child responds. No obligations.",
+    "guarantees": [
+      "Free trial lesson",
+      "Quality teaching",
+      "Free teacher replacement",
+      "An individual approach to everyone"
+    ],
+    "cta": "Get a free lesson"
+  },
+
+  "languages": {
+    "english": {
+      "hero": {
+        "eyebrow": "English online · ages 10–17",
+        "title": "Want your child to actually speak English,",
+        "titleHighlight": "not just attend a tutor?",
+        "subtitle": "One-to-one lessons. The first one is free, so you can see how your child works with the teacher.",
+        "benefits": [
+          { "bold": "One-to-one only:", "text": " no groups where the teacher splits attention between eight kids" },
+          { "bold": "A report every month:", "text": " a separate methodologist reviews what happens in the lessons and adjusts the programme" },
+          { "bold": "Not the right teacher? We will change it:", "text": " free and with no awkward conversations" }
+        ],
+        "formTitle": "Book a trial lesson",
+        "formSubtitle": "Message us on WhatsApp or call",
+        "ctaButton": "Book a trial lesson"
+      },
+      "painPoints": {
+        "eyebrow": "Sound familiar?",
+        "title": "This is roughly what parents come to us with",
+        "subtitle": "The phrases we hear most often on the first call.",
+        "footer": "We have been working with each of them for years — below we show exactly how.",
+        "items": [
+          {
+            "title": "We have studied English for 3 years — zero results",
+            "description": "Your child goes to courses or a tutor but still cannot make a simple sentence. The money goes, but there is no visible progress."
+          },
+          {
+            "title": "Afraid to speak — silent in lessons",
+            "description": "Knows the words, understands the grammar, but when it comes to speaking they freeze. Fear of mistakes is paralysing."
+          },
+          {
+            "title": "No time to drive to lessons",
+            "description": "A good tutor is on the other side of the city. The round trip eats 2 hours. And then traffic, tiredness, homework..."
+          },
+          {
+            "title": "Boring lessons — your child does not want to study",
+            "description": "Drilling, textbooks from the 90s, no interest at all. Every lesson is a battle and persuasion."
+          }
+        ]
+      },
+      "results": {
+        "eyebrow": "Student story",
+        "title": "Real stories of our students",
+        "subtitle": "Here is how kids' lives change after studying with us",
+        "cta": "I want the same result",
+        "cases": [
+          {
+            "image": "/uploads/alisher.jpg",
+            "title": "Case #1: How Alisher turned from a “silent one” into a confident contest participant in one year",
+            "story": "Alisher came to us in grade 10 with a classic problem — he knows the grammar but cannot speak. He writes well on tests, but as soon as he has to say something aloud — silence. He was simply afraid of making a mistake and looking silly in front of classmates.\n\nWe did not load him with new rules — he already had plenty. We just started talking. About what he is interested in, games, films, everyday situations. After a few months Alisher began answering in lessons on his own, without fear. And a year later he took part in school English contests. Calmly and confidently.",
+            "testimonial": "\"I want to say a huge thank you: after your lessons my son has improved significantly in English and Kazakh, and it is much easier for him to write tests, for which he gets good marks. The teacher presents information clearly and in simple language, is very responsible and punctual, thanks to the extra knowledge studying has become much easier, and my son studies with interest and enthusiasm in the lessons. Thank you so much ❤️\"",
+            "conclusion": "The main thing that changed — Alisher stopped being afraid of the language. He did not become a top student in a month and did not learn 10,000 words. He simply started to speak. And that gave results in everything else.",
+            "duration": "1 year of lessons"
+          },
+          {
+            "image": "/uploads/student1.jpg",
+            "title": "Medina's story: when English stopped being torture",
+            "story": "Medina came to us in grade 10 saying: \"I no longer believe I can learn English. I just don't have the gift\".\n\nBefore that she had tried several centres. The same everywhere: the group is rushed through the programme whether you understood or not. One time today, another tomorrow, a third the day after. A mess in the head, nothing sticks. Tears and a feeling that something is wrong with her.\n\nWe decided to do it differently. We dropped the standard programme. We started from zero, but immediately began building sentences and talking. No cramming long lists of rules. If a topic is not absorbed, we do not move on. Not until it is clear.",
+            "testimonial": "",
+            "conclusion": "Medina did not become an English champion in six months. But she stopped being afraid of it. And for her that is a huge result.",
+            "duration": "6 months of lessons"
+          },
+          {
+            "image": "/uploads/student2.jpg",
+            "title": "Alina's story: from zero to IELTS in two years",
+            "story": "Alina came to us in grade 11. English almost from scratch, a jumble of rule fragments in her head, words would not stick, she was shy to speak. And the hardest part — the feeling that it was already too late, that time was lost and nothing could be done.\n\nWe started simple. We did not try to catch up on the whole school programme in a month. We just went step by step, at her pace.\n\nTwo years have passed. Now Alina writes IELTS essays and describes graphs without even thinking much. In the UNT English exam she shows results she never dreamed of.",
+            "testimonial": "\"I want to thank you and leave a review for the work and the path you have been walking with us, with Alina, for several years now! Asylzhan, thank you so very much for the knowledge, patience, interesting lessons and presentation of material, and the individual approach to English! Special thanks for the support and IELTS preparation — you can't imagine how important your support is and how it adds confidence to Alina! Thanks to you, Alina, practically from \"0\" knowledge, is now heading to confident command of languages! Alina really likes your lessons, the method and the comfortable, positive atmosphere that motivates her to keep moving forward!\"",
+            "conclusion": "Two years ago Alina thought she was too late. Now she is preparing for IELTS. Simply because we went at her pace and supported her when she herself did not believe in the result.",
+            "duration": "2 years of lessons"
+          }
+        ]
+      },
+      "testimonials": {
+        "title": "What parents of our students say",
+        "subtitle": "Real reviews from moms and dads whose kids study with us",
+        "items": [
+          {
+            "text": "I want to thank my English teacher! She explains clearly and always supports me even when something does not work. Lessons are interesting and lively — lots of practice, dialogues, games. I started speaking more confidently and understanding English speech better. I studied for a couple of months and managed to raise my English level!! The teachers are very kind and always explain patiently. They show interest in English and motivation to learn appears immediately.",
+            "parent": "School student",
+            "relation": "",
+            "image": "/uploads/student1.jpg"
+          },
+          {
+            "text": "Yes, thank you so much 🙏🌹🌹🌹! She was the only one in the class to get a 5, and she even got a question they had not managed to go through with the teacher! She answered first, it took about an hour, and when she came out into the corridor all the teachers were surprised that she answered so fast 🤭 This is thanks to the lessons with you 🙏, I am so glad we found you 😍 Even I can see her huge progress in knowledge, not to mention vocabulary and grammar. This is your merit, thank you very much 🙏💓😘",
+            "parent": "Parent",
+            "relation": "mother of a student",
+            "image": "/uploads/student2.jpg"
+          },
+          {
+            "text": "I would like to leave a review: I have been studying English for almost a year, I really like how Asylzhan and Dania teach. I started at Beginner level and am now at Pre-Intermediate. Lessons are very interesting, in a comfortable and friendly atmosphere. Thank you very much! 🥰",
+            "parent": "Aliya",
+            "relation": "school student",
+            "image": ""
+          }
+        ]
+      }
+    },
+
+    "kazakh": {
+      "hero": {
+        "eyebrow": "Kazakh online · ages 10–17",
+        "title": "Your child will start speaking Kazakh in",
+        "titleHighlight": "3 months",
+        "subtitle": "Online lessons with native-speaker teachers for kids aged 10–17. Immersion in culture and traditions.",
+        "benefits": [
+          { "bold": "Lessons from home", "text": " — no time wasted on the commute" },
+          { "bold": "First lesson free", "text": " — meet the teacher" },
+          { "bold": "Native speakers", "text": " — natural pronunciation and cultural context" }
+        ],
+        "formTitle": "Book a trial lesson",
+        "formSubtitle": "Message us on WhatsApp or call",
+        "ctaButton": "Book a free lesson"
+      },
+      "painPoints": {
+        "eyebrow": "Sound familiar?",
+        "title": "This is roughly what parents come to us with",
+        "subtitle": "The phrases we hear most often on the first call.",
+        "footer": "We have been working with each of them for years — below we show exactly how.",
+        "items": [
+          {
+            "title": "Has studied Kazakh since first grade — but cannot speak",
+            "description": "At school the language is taught from a textbook: rules, texts, retelling. Your child knows words but cannot keep up a live conversation."
+          },
+          {
+            "title": "Understands, but answers in Russian",
+            "description": "They are addressed in Kazakh — they understood everything but cannot answer. Each time the habit of switching to Russian gets stronger."
+          },
+          {
+            "title": "Nobody to practise with at home",
+            "description": "The family speaks Russian, there is no language environment. What is learned in class has nowhere to be used — a week later it is forgotten."
+          },
+          {
+            "title": "Boring lessons — your child does not want to study",
+            "description": "Drilling rules and retelling by heart, no interest at all. Every lesson is a battle and persuasion."
+          }
+        ]
+      },
+      "results": null,
+      "testimonials": null
+    }
+  }
+}

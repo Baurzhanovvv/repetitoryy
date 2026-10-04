@@ -368,8 +368,6 @@ export function AdminPage() {
             onChange={(v) => patch((d) => { d.contactForm.subtitle = v; })} />
           <TextArea label="Гарантии (по одной в строке)" rows={4} value={content.contactForm.guarantees.join('\n')}
             onChange={(v) => patch((d) => { d.contactForm.guarantees = v.split('\n').filter((s) => s.trim()); })} />
-          <Field label="Текст кнопки" value={content.contactForm.cta}
-            onChange={(v) => patch((d) => { d.contactForm.cta = v; })} />
         </Section>
 
         {/* --- языковые секции --- */}
@@ -414,12 +412,6 @@ export function AdminPage() {
               </>
             )}
           />
-          <Field label="Заголовок формы" value={L.hero.formTitle}
-            onChange={(v) => patch((d) => { d.languages[lang].hero.formTitle = v; })} />
-          <Field label="Подпись под заголовком формы" value={L.hero.formSubtitle}
-            onChange={(v) => patch((d) => { d.languages[lang].hero.formSubtitle = v; })} />
-          <Field label="Текст кнопки" value={L.hero.ctaButton}
-            onChange={(v) => patch((d) => { d.languages[lang].hero.ctaButton = v; })} />
         </Section>
 
         <Section title={`Боли родителей — ${lang === 'english' ? 'английский' : 'казахский'}`}>

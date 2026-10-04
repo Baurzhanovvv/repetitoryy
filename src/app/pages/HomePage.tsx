@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { Logo } from "../components/Logo";
 import { ArrowRight } from "lucide-react";
 import { useContent } from "../content/ContentProvider";
+import { LangSwitcher } from "../components/LangSwitcher";
+import { useT } from "../i18n/LocaleProvider";
 
 export function HomePage() {
   const font = { fontFamily: 'Onest, sans-serif' };
+  const t = useT();
 
   const content = useContent();
   const courses = content.home.courses.map((course, i) => ({
@@ -18,8 +21,9 @@ export function HomePage() {
   return (
     <div className="min-h-screen bg-white flex flex-col" style={{ fontFamily: "'Golos Text', sans-serif" }}>
       <header className="border-b border-[#DCE1ED]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-[68px] flex items-center">
-          <Logo />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-[68px] flex items-center justify-between gap-2">
+          <Logo className="scale-90 origin-left sm:scale-100" />
+          <LangSwitcher compact />
         </div>
       </header>
 
@@ -67,7 +71,7 @@ export function HomePage() {
               </ul>
 
               <span className={`inline-block mt-6 font-semibold ${course.accent}`} style={font}>
-                Смотреть программу →
+                {t.sections.viewProgram}
               </span>
             </Link>
           ))}
@@ -93,8 +97,8 @@ export function HomePage() {
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <a href={`tel:+${content.contacts.phoneRaw}`} className="text-[#5A6480] hover:text-[#101A2E]">{content.contacts.phone}</a>
-            <Link to="/privacy" className="text-[#5A6480] hover:text-[#101A2E]">Политика конфиденциальности</Link>
-            <Link to="/offer" className="text-[#5A6480] hover:text-[#101A2E]">Договор оферты</Link>
+            <Link to="/privacy" className="text-[#5A6480] hover:text-[#101A2E]">{t.footer.privacy}</Link>
+            <Link to="/offer" className="text-[#5A6480] hover:text-[#101A2E]">{t.footer.offer}</Link>
           </div>
         </div>
       </footer>

@@ -1,8 +1,9 @@
 import { Clock, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "./ui/button";
+import { useT } from "../i18n/LocaleProvider";
+import { trackContact } from "../utils/analytics";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useState } from "react";
-import { useLanguageContent } from "../content/ContentProvider";
+import { useLanguageContent, useContent } from "../content/ContentProvider";
 import type { Language } from "../content/types";
 
 interface ResultsProps {
@@ -11,6 +12,8 @@ interface ResultsProps {
 
 export function Results({ language = "english" }: ResultsProps) {
   const content = useLanguageContent(language).results;
+  const t = useT();
+  const { contacts } = useContent();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Секции может не быть — например, для казахского пока нет реальных кейсов
@@ -22,9 +25,7 @@ export function Results({ language = "english" }: ResultsProps) {
   const next = () => setCurrentSlide((p) => (p + 1) % cases.length);
   const prev = () => setCurrentSlide((p) => (p - 1 + cases.length) % cases.length);
 
-  const scrollToForm = () => {
-    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const waLink = `https://wa.me/${contacts.phoneRaw}?text=${encodeURIComponent(t.contact.waText[language])}`;
 
   return (
     <section className="py-14 md:py-20 bg-white border-t border-[#DCE1ED]">
@@ -69,17 +70,17 @@ export function Results({ language = "english" }: ResultsProps) {
             {item.testimonial && (
               <blockquote className="border-l-[3px] border-[#D9541C] pl-5 my-6 max-w-[64ch]">
                 <p className="text-[#5A6480] text-[16px] leading-relaxed italic">{item.testimonial}</p>
-                <footer className="text-[#101A2E] text-[14.5px] mt-2.5 not-italic">— отзыв родителя</footer>
+                <footer className="text-[#101A2E] text-[14.5px] mt-2.5 not-italic">{t.sections.parentReview}</footer>
               </blockquote>
             )}
 
             <p className="text-[#3E4A66] text-[16.5px] leading-relaxed max-w-[64ch]">{item.conclusion}</p>
 
             {cases.length > 1 && (
-              <div className="flex items-center gap-3 mt-8">
+              <div className="flex flex-wrap items-center gap-3 mt-8">
                 <button
                   onClick={prev}
-                  aria-label="Предыдущая история"
+                  aria-label={t.sections.prevStory}
                   className="w-10 h-10 rounded-full border border-[#DCE1ED] flex items-center justify-center text-[#1E45B8] hover:bg-[#E8EDFB] transition-colors"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -89,25 +90,28 @@ export function Results({ language = "english" }: ResultsProps) {
                     <button
                       key={i}
                       onClick={() => setCurrentSlide(i)}
-                      aria-label={`История ${i + 1}`}
+                      aria-label={`${i + 1} / ${cases.length}`}
                       className={`h-1.5 rounded-full transition-all ${i === currentSlide ? 'w-6 bg-[#1E45B8]' : 'w-1.5 bg-[#C3CCE2] hover:bg-[#8B94AB]'}`}
                     />
                   ))}
                 </div>
                 <button
                   onClick={next}
-                  aria-label="Следующая история"
+                  aria-label={t.sections.nextStory}
                   className="w-10 h-10 rounded-full border border-[#DCE1ED] flex items-center justify-center text-[#1E45B8] hover:bg-[#E8EDFB] transition-colors"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
 
-                <Button
-                  onClick={scrollToForm}
-                  className="ml-auto rounded-xl text-white bg-[#D9541C] hover:bg-[#F07135] px-5"
+                <a
+                  href={waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackContact("whatsapp", `results-${language}`)}
+                  className="w-full sm:w-auto sm:ml-auto min-h-[48px] inline-flex items-center justify-center rounded-xl text-white font-semibold bg-[#D9541C] hover:bg-[#F07135] px-5 text-center"
                 >
                   {content.cta}
-                </Button>
+                </a>
               </div>
             )}
           </div>

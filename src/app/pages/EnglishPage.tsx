@@ -20,7 +20,6 @@ const HowItWorksWithLang = withLanguageSupport(HowItWorks);
 const TeachersWithLang = withLanguageSupport(Teachers);
 const PricingWithLang = withLanguageSupport(Pricing);
 const FAQWithLang = withLanguageSupport(FAQ);
-const ContactFormWithLang = withLanguageSupport(ContactForm);
 
 export function EnglishPage() {
   return (
@@ -67,17 +66,17 @@ export function EnglishPage() {
 
       {/* 10. Final CTA + Guarantees (Финальный призыв) */}
       <div id="contact-form">
-        <ContactFormWithLang language="english" />
+        <ContactForm language="english" />
       </div>
 
       {/* Footer */}
       <Footer language="english" />
 
       {/* Mobile Fixed CTA */}
-      <MobileFixedCTA />
-      
+      <MobileFixedCTA course="english" />
+
       {/* WhatsApp Float Button */}
-      <WhatsAppFloat />
+      <WhatsAppFloat course="english" />
     </div>
   );
 }

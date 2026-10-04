@@ -18,7 +18,6 @@ const HowItWorksWithLang = withLanguageSupport(HowItWorks);
 const TeachersWithLang = withLanguageSupport(Teachers);
 const PricingWithLang = withLanguageSupport(Pricing);
 const FAQWithLang = withLanguageSupport(FAQ);
-const ContactFormWithLang = withLanguageSupport(ContactForm);
 
 export function KazakhPage() {
   return (
@@ -60,17 +59,17 @@ export function KazakhPage() {
 
       {/* 10. Final CTA + Guarantees (Финальный призыв) */}
       <div id="contact-form">
-        <ContactFormWithLang language="kazakh" />
+        <ContactForm language="kazakh" />
       </div>
 
       {/* Footer */}
       <Footer language="kazakh" />
 
       {/* Mobile Fixed CTA */}
-      <MobileFixedCTA />
-      
+      <MobileFixedCTA course="kazakh" />
+
       {/* WhatsApp Float Button */}
-      <WhatsAppFloat />
+      <WhatsAppFloat course="kazakh" />
     </div>
   );
 }

@@ -1,8 +1,10 @@
 import { useContent } from "../content/ContentProvider";
+import { useT } from "../i18n/LocaleProvider";
 
 
 export function HowItWorks() {
   const content = useContent().howItWorks;
+  const t = useT();
   const steps = content.steps;
 
   return (
@@ -24,7 +26,7 @@ export function HowItWorks() {
           {steps.map((step, index) => (
             <div key={index} className="bg-[#1B2942] px-6 py-7">
               <i className="not-italic text-[#F07135] text-xs font-bold tracking-[0.1em]" style={{ fontFamily: 'Onest, sans-serif' }}>
-                ШАГ {step.number}
+                {t.sections.step} {step.number}
               </i>
               <h4 className="text-white text-[17.5px] font-semibold mt-3 mb-2" style={{ fontFamily: 'Onest, sans-serif' }}>
                 {step.title}
