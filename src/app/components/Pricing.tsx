@@ -1,16 +1,14 @@
 import { Check, Star, Gift } from "lucide-react";
 import { useContent } from "../content/ContentProvider";
-import { Button } from "./ui/button";
+import { useT } from "../i18n/LocaleProvider";
+import { trackContact } from "../utils/analytics";
 
 export function Pricing() {
-  const scrollToForm = () => {
-    const formSection = document.getElementById("contact-form");
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const content = useContent().pricing;
+  const t = useT();
+  const site = useContent();
+  const content = site.pricing;
+  const waLink = (plan: string) =>
+    `https://wa.me/${site.contacts.phoneRaw}?text=${encodeURIComponent(`${t.contact.waText.general} (${plan})`)}`;
   const plans = content.plans;
   const includedFeatures = content.included;
 
@@ -45,7 +43,7 @@ export function Pricing() {
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-7 bg-[#1E45B8] text-white text-xs font-semibold tracking-[0.06em] px-3 py-1.5 rounded-lg" style={{ fontFamily: 'Onest, sans-serif' }}>
-                  ЧАЩЕ ВСЕГО БЕРУТ
+                  {t.sections.mostPopular}
                 </div>
               )}
               {plan.discount && (
@@ -75,25 +73,27 @@ export function Pricing() {
                 </p>
               )}
 
-              <Button
-                onClick={scrollToForm}
-                size="lg"
+              <a
+                href={waLink(`${plan.name}, ${plan.lessons}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackContact("whatsapp", `pricing-${plan.name}`)}
                 className={
-                  "w-full text-base py-6 rounded-xl mt-5 " +
+                  "flex items-center justify-center w-full min-h-[52px] text-base font-semibold rounded-xl mt-5 transition-colors " +
                   (plan.popular
                     ? "bg-[#D9541C] hover:bg-[#F07135] text-white"
                     : "bg-white border-[1.5px] border-[#1E45B8] text-[#1E45B8] hover:bg-[#E8EDFB]")
                 }
               >
-                Начать обучение
-              </Button>
+                {t.sections.startLearning}
+              </a>
             </div>
           ))}
         </div>
 
         <div className="mt-12">
         <h3 className="text-center mb-8 text-2xl md:text-3xl" style={{ fontFamily: 'Onest, sans-serif', color: '#101A2E' }}>
-            Что входит во все тарифы
+            {content.includedTitle}
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">

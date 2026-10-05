@@ -1,4 +1,7 @@
+import { useT } from "../i18n/LocaleProvider";
+
 export function Logo({ className = "" }: { className?: string }) {
+  const t = useT();
   return (
     <div className={`flex items-center gap-2 ${className}`}>
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +15,7 @@ export function Logo({ className = "" }: { className?: string }) {
       </svg>
       <div className="flex flex-col leading-tight">
         <span className="font-semibold text-lg" style={{ fontFamily: 'Onest, sans-serif' }}>Репетитор Рядом</span>
-        <span className="text-xs text-muted-foreground">Онлайн школа</span>
+        <span className="text-xs text-muted-foreground">{t.brandSub}</span>
       </div>
     </div>
   );

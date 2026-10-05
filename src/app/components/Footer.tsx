@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useContent } from "../content/ContentProvider";
 import { Phone, MapPin, MessageCircle } from "lucide-react";
 import { Logo } from "./Logo";
+import { useT } from "../i18n/LocaleProvider";
 import { Language } from "../content/types";
 
 interface FooterProps {
@@ -10,6 +11,7 @@ interface FooterProps {
 
 export function Footer({ language }: FooterProps) {
   const { contacts } = useContent();
+  const t = useT();
   const hasStudentSections = language !== 'kazakh';
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -28,15 +30,15 @@ export function Footer({ language }: FooterProps) {
               <Logo className="[&_path]:fill-white [&_circle]:fill-[#D9541C] [&_span]:text-white [&_.text-muted-foreground]:text-white/60" />
             </div>
             <p className="text-white/70 leading-relaxed max-w-md mb-6">
-              Персональные онлайн-занятия английским и казахским для детей 10-17 лет. 
-              Индивидуальный подход и качественное обучение.
+              {contacts.footerAbout}
             </p>
             <div className="flex gap-4">
               <a 
                 href={`https://wa.me/${contacts.phoneRaw}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 hover:bg-[#1FA855] rounded-full flex items-center justify-center transition-colors"
+                aria-label="WhatsApp"
+                className="w-11 h-11 bg-white/10 hover:bg-[#1FA855] rounded-full flex items-center justify-center transition-colors"
               >
                 <MessageCircle className="w-5 h-5" />
               </a>
@@ -46,35 +48,35 @@ export function Footer({ language }: FooterProps) {
           {/* Quick Links */}
           <div>
             <h4 className="text-lg mb-4 font-semibold" style={{ fontFamily: 'Onest, sans-serif' }}>
-              Навигация
+              {t.footer.navigation}
             </h4>
             <ul className="space-y-3">
               <li>
                 <button onClick={() => scrollToSection("solutions")} className="text-white/70 hover:text-white transition-colors text-left">
-                  О школе
+                  {t.nav.about}
                 </button>
               </li>
               <li>
                 <button onClick={() => scrollToSection("teachers")} className="text-white/70 hover:text-white transition-colors text-left">
-                  Преподаватели
+                  {t.nav.teachers}
                 </button>
               </li>
               {hasStudentSections && (
               <li>
                   <button onClick={() => scrollToSection("results")} className="text-white/70 hover:text-white transition-colors text-left">
-                    Результаты
+                    {t.nav.results}
                   </button>
                 </li>
               )}
               <li>
                 <button onClick={() => scrollToSection("pricing")} className="text-white/70 hover:text-white transition-colors text-left">
-                  Цены
+                  {t.nav.pricing}
                 </button>
               </li>
               {hasStudentSections && (
               <li>
                   <button onClick={() => scrollToSection("testimonials")} className="text-white/70 hover:text-white transition-colors text-left">
-                    Отзывы
+                    {t.nav.reviews}
                   </button>
                 </li>
               )}
@@ -84,12 +86,12 @@ export function Footer({ language }: FooterProps) {
           {/* Contact */}
           <div>
             <h4 className="text-lg mb-4 font-semibold" style={{ fontFamily: 'Onest, sans-serif' }}>
-              Контакты
+              {t.footer.contacts}
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-white/70">
                 <Phone className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                <a href="tel:+77475252582" className="hover:text-white transition-colors">
+                <a href={`tel:+${contacts.phoneRaw}`} className="hover:text-white transition-colors">
                   {contacts.phone}
                 </a>
               </li>
@@ -109,14 +111,14 @@ export function Footer({ language }: FooterProps) {
 
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/60 text-sm text-center md:text-left">
-            © {new Date().getFullYear()} Репетитор Рядом. Все права защищены.
+            © {new Date().getFullYear()} Репетитор Рядом. {t.footer.rights}
           </p>
-          <div className="flex gap-6 text-sm">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
             <Link to="/privacy" className="text-white/60 hover:text-white transition-colors">
-              Политика конфиденциальности
+              {t.footer.privacy}
             </Link>
             <Link to="/offer" className="text-white/60 hover:text-white transition-colors">
-              Договор оферты
+              {t.footer.offer}
             </Link>
           </div>
         </div>

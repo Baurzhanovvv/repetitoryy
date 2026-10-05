@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { ContentProvider } from "./content/ContentProvider";
+import { LocaleProvider } from "./i18n/LocaleProvider";
 
 // админку в основной бандл не тянем — она нужна одному-двум людям
 const AdminPage = lazy(() => import("./pages/AdminPage").then((m) => ({ default: m.AdminPage })));
@@ -13,6 +14,7 @@ import { OfferPage } from "./pages/OfferPage";
 
 export default function App() {
   return (
+    <LocaleProvider>
     <ContentProvider>
       <Router>
       <Routes>
@@ -35,5 +37,6 @@ export default function App() {
       </Routes>
       </Router>
     </ContentProvider>
+    </LocaleProvider>
   );
 }

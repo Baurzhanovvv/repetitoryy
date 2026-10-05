@@ -1,9 +1,12 @@
 /**
- * Отправка конверсии в Google Ads.
+ * Конверсия в Google Ads.
  *
- * Вызывается только когда заявка реально ушла на сервер, а не по клику
- * на кнопку: клик ещё ничего не значит — форма может не пройти валидацию
- * или отправка может упасть.
+ * Формы заявки больше нет: запись идёт через WhatsApp или звонок, поэтому
+ * конверсией считаем клик по этим кнопкам. Это осознанный клик взрослого,
+ * а не случайно заполненная детьми анкета.
+ *
+ * ponytail: используем прежний conversion label — в Google Ads лучше завести
+ * отдельную конверсию «WhatsApp/звонок» и подставить её сюда.
  */
 
 const CONVERSION_ID = 'AW-17844260471/5JnSCKeI3t0bEPec57xC';
@@ -16,41 +19,19 @@ declare global {
   }
 }
 
-/**
- * Сообщает Google Ads о конверсии и вызывает done().
- *
- * done() выполнится в любом случае: по колбэку от Google, по таймауту,
- * или сразу — если gtag недоступен (блокировщик рекламы, сбой загрузки).
- * Пользователь не должен застревать на форме из-за аналитики.
- */
-export function reportLeadConversion(done: () => void): void {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
-    done();
-    return;
-  }
+export type ContactMethod = 'whatsapp' | 'call';
 
-  let finished = false;
-  const finishOnce = () => {
-    if (finished) return;
-    finished = true;
-    done();
-  };
-
-  // страховка: если Google не ответит, всё равно уводим пользователя дальше
-  const timer = window.setTimeout(finishOnce, 1200);
-
+/** Ничего не ждём: wa.me открывается в новой вкладке, tel: — системный звонок. */
+export function trackContact(method: ContactMethod, source: string): void {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
   try {
     window.gtag('event', 'conversion', {
       send_to: CONVERSION_ID,
       value: 1.0,
       currency: 'USD',
-      event_callback: () => {
-        window.clearTimeout(timer);
-        finishOnce();
-      },
     });
+    window.gtag('event', 'contact_click', { method, source });
   } catch {
-    window.clearTimeout(timer);
-    finishOnce();
+    // аналитика не должна ломать кнопку
   }
 }
