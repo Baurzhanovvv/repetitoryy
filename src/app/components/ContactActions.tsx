@@ -49,7 +49,7 @@ export function ContactActions({ course, source, note = false, className = "" }:
         </span>
       </a>
 
-      {note && <p className="text-[13px] text-[#5A6480] text-center mt-4 leading-snug">{t.contact.parentsOnly}</p>}
+      {note && <p className="text-[12px] font-medium text-[#3E4A66] text-center mt-4 leading-snug">{t.contact.parentsOnly}</p>}
     </div>
   );
 }
